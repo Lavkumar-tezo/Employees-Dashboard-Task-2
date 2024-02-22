@@ -1,0 +1,281 @@
+var sideBarChange = 0;
+var appUpdate = 0;
+var employeeList = [
+    {
+        "img": "../assets/images/user-profile-transparent.png",
+        "fname": "Lav",
+        "lname": "Kumar",
+        "email": "lavkumar@tezo.com",
+        "location": "USA",
+        "dept": "IT",
+        "role": "IN122",
+        "empNo": "TZ002312",
+        "status": "Active",
+        "joinDate": "17/01/2024",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/profile.webp",
+        "fname": "Rajesh",
+        "lname": "Singhggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+        "email": "rajesh.singh@tezo.com",
+        "location": "HYDERABAD",
+        "dept": "Product Engg",
+        "role": "IN124",
+        "empNo": "TZ876543",
+        "status": "Active",
+        "joinDate": "12/03/2019",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/dummy-profile-image.jpg",
+        "fname": "Lisa",
+        "lname": "Smith",
+        "email": "lisa.smith@tezo.com",
+        "location": "USA",
+        "dept": "UI/UX",
+        "role": "IN122",
+        "empNo": "TZ123456",
+        "status": "In Active",
+        "joinDate": "05/06/2018",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/profile.webp",
+        "fname": "Mohammed",
+        "lname": "Ali",
+        "email": "mohammed.ali@tezo.com",
+        "location": "HYDERABAD",
+        "dept": "IT",
+        "role": "IN125",
+        "empNo": "TZ234567",
+        "status": "Active",
+        "joinDate": "10/10/2020",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/dummy-profile-image.jpg",
+        "fname": "Emily",
+        "lname": "Jones",
+        "email": "emily.jones@tezo.com",
+        "location": "USA",
+        "dept": "Product Engg",
+        "role": "IN128",
+        "empNo": "TZ345678",
+        "status": "In Active",
+        "joinDate": "15/07/2017",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/profile.webp",
+        "fname": "Ravi",
+        "lname": "Kumar",
+        "email": "ravi.kumar@tezo.com",
+        "location": "HYDERABAD",
+        "dept": "UI/UX",
+        "role": "IN130",
+        "empNo": "TZ456789",
+        "status": "Active",
+        "joinDate": "20/04/2021",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/dummy-profile-image.jpg",
+        "fname": "Anna",
+        "lname": "Lee",
+        "email": "anna.lee@tezo.com",
+        "location": "USA",
+        "dept": "IT",
+        "role": ["IN135"],
+        "empNo": "TZ567890",
+        "status": "In Active",
+        "joinDate": "25/01/2016",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+    {
+        "img": "../assets/images/dummy-profile-image.jpg",
+        "fname": "Prashant",
+        "lname": "Kumar",
+        "email": "prashant.k@tezo.com",
+        "location": "USA",
+        "dept": "IT",
+        "role":"",
+        "empNo": "TZ5678",
+        "status": "In Active",
+        "joinDate": "25/01/2016",
+        "dob": "17/01/2004",
+        "projectAssigned": "dummy project 1",
+        "managerAssigned": "manager 1",
+        "mobile": 1212121212,
+        "dots": "../assets/icons/three-dot.svg"
+    },
+];
+
+var allRoles = [
+    {
+        "role": "Customer Service Manager",
+        "roleId": "IN125",
+        "desc": "",
+        "dept": "IT",
+        "location": "Hyderabad",
+    },
+    {
+        "role": "UX Designer",
+        "roleId": "IN128",
+        "desc": "",
+        "dept": "Product Engg",
+        "location": "Hyderabad",
+    },
+    {
+        "role": "Assistant Backend Designer",
+        "roleId": "IN130",
+        "desc": "",
+        "dept": "UI/UX",
+        "location": "Hyderabad",
+    },
+    {
+        "role": "Human Resource Manager",
+        "roleId": "IN135",
+        "desc": "",
+        "dept": "IT",
+        "location": "Hyderabad",
+    },
+    {
+        "role": "Front End Developer",
+        "roleId": "IN124",
+        "desc": "",
+        "dept": "Product Engg",
+        "location": "Hyderabad",
+    },
+    {
+        "role": "Senior Developer",
+        "roleId": "IN122",
+        "desc": "",
+        "dept": "UI/UX",
+        "location": "Hyderabad",
+    }
+];
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    let allEmps = JSON.parse(localStorage.getItem('employeeList'));
+    if (allEmps) {
+        employeeList = allEmps;
+    }
+    else
+        localStorage.setItem('employeeList', JSON.stringify(employeeList));
+    let allroles = localStorage.getItem('roles');
+    if (allroles) {
+        allRoles = allroles
+    }
+    else
+        localStorage.setItem('roles', JSON.stringify(allRoles));
+    document.querySelector('.sidebar-min-icon').addEventListener("click", layoutChange);
+    document.querySelector('.dismiss-btn').addEventListener("click", dismissBtn);
+})
+
+function layoutChange() {
+    if (window.screen.width > 720 && sideBarChange == 0) {
+        document.getElementsByClassName('wrapper')[0].style.gridTemplateColumns = "1fr 20fr";
+        document.getElementsByClassName('sidebar-container')[0].style.padding = "0";
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
+        document.getElementsByClassName('logo')[0].style.width = "120%";
+        document.getElementsByClassName('sidebar-min-icon')[0].classList.add("sidebar-min-icon-expand");
+        document.getElementsByClassName('sm-heading')[0].style.display = "block";
+        document.getElementsByClassName('md-heading')[0].style.display = "none";
+        let allSecHeading = document.getElementsByClassName('sec-heading');
+        for (let i = 0; i < allSecHeading.length; i++) {
+            allSecHeading[i].style.display = "none";
+        }
+        document.getElementsByClassName('app-update-container')[0].style.display = "none";
+        sideBarChange = 1;
+    }
+    else if (window.screen.width > 720 && sideBarChange == 1) {
+        document.getElementsByClassName('wrapper')[0].style.gridTemplateColumns = "1fr 4.5fr";
+        document.getElementsByClassName('sidebar-container')[0].style.padding = "0 0.5rem";
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
+        document.getElementsByClassName('logo')[0].style.width = "60%";
+        document.getElementsByClassName('sidebar-min-icon')[0].classList.remove("sidebar-min-icon-expand");
+        document.getElementsByClassName('sm-heading')[0].style.display = "none";
+        document.getElementsByClassName('md-heading')[0].style.display = "block";
+        let allSecHeading = document.getElementsByClassName('sec-heading');
+        for (let i = 0; i < allSecHeading.length; i++) {
+            allSecHeading[i].style.display = "block";
+        }
+        if (appUpdate != 1)
+            document.getElementsByClassName('app-update-container')[0].style.display = "block";
+        sideBarChange = 0;
+    }
+}
+
+function dismissBtn() {
+    document.getElementsByClassName("app-update-container")[0].style.display = "none";
+    appUpdate = 1;
+}
+
+function changeIcon() {
+    if (this.classList.contains("sidebar-active-card") == false) {
+        let imgSrc = this.getElementsByTagName('img')[0].getAttribute('src');
+        if (imgSrc.indexOf("black") > -1) {
+            let newImgSrc = imgSrc.replace("black", "red");
+            this.getElementsByTagName('img')[0].src = newImgSrc;
+        }
+        else {
+            let newImgSrc = imgSrc.replace("red", "black");
+            this.getElementsByTagName('img')[0].src = newImgSrc;
+        }
+        let imgSrc2 = this.getElementsByTagName('img')[1]?.getAttribute('src');
+        if (imgSrc2) {
+            if (imgSrc2.indexOf("black") > -1) {
+                let newImgSrc = imgSrc2.replace("black", "red");
+                this.getElementsByTagName('img')[1].src = newImgSrc;
+            }
+            else {
+                let newImgSrc = imgSrc2.replace("red", "black");
+                this.getElementsByTagName('img')[1].src = newImgSrc;
+            }
+        }
+
+    }
+}
+
+let sideSec = document.getElementsByClassName('side-section-card');
+for (let i = 0; i < sideSec.length; i++) {
+    sideSec[i].addEventListener("mouseover", changeIcon);
+    sideSec[i].addEventListener('mouseout', changeIcon);
+}
+
+window.addEventListener("resize", function () {
+    if (window.matchMedia("(max-width: 720px)").matches) {
+        document.getElementsByClassName('logo')[0].src = "/assets/images/tezo-logo-min.png";
+    } else {
+        document.getElementsByClassName('logo')[0].src = "/assets/images/tezo-logo.png";
+    }
+})
