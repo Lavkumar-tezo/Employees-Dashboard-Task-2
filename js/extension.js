@@ -11,7 +11,7 @@ function showValidInput(element, message, flag) {
     span.style.color = 'red';
     element.addEventListener('change', (event) => {
       hideRequiredMessage(event.target);
-    })
+    });
 }
 
 function hideRequiredMessage(element) {

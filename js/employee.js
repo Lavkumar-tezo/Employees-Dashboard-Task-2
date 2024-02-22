@@ -2,23 +2,6 @@ var sideBarChange = 0;
 var appUpdate = 0;
 var employeeList = [
     {
-        "img": "../assets/images/user-profile-transparent.png",
-        "fname": "Lav",
-        "lname": "Kumar",
-        "email": "lavkumar@tezo.com",
-        "location": "USA",
-        "dept": "IT",
-        "role": "IN122",
-        "empNo": "TZ002312",
-        "status": "Active",
-        "joinDate": "17/01/2024",
-        "dob": "17/01/2004",
-        "projectAssigned": "dummy project 1",
-        "managerAssigned": "manager 1",
-        "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
-    },
-    {
         "img": "../assets/images/profile.webp",
         "fname": "Rajesh",
         "lname": "Singhggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
@@ -85,58 +68,7 @@ var employeeList = [
         "managerAssigned": "manager 1",
         "mobile": 1212121212,
         "dots": "../assets/icons/three-dot.svg"
-    },
-    {
-        "img": "../assets/images/profile.webp",
-        "fname": "Ravi",
-        "lname": "Kumar",
-        "email": "ravi.kumar@tezo.com",
-        "location": "HYDERABAD",
-        "dept": "UI/UX",
-        "role": "IN130",
-        "empNo": "TZ456789",
-        "status": "Active",
-        "joinDate": "20/04/2021",
-        "dob": "17/01/2004",
-        "projectAssigned": "dummy project 1",
-        "managerAssigned": "manager 1",
-        "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
-    },
-    {
-        "img": "../assets/images/dummy-profile-image.jpg",
-        "fname": "Anna",
-        "lname": "Lee",
-        "email": "anna.lee@tezo.com",
-        "location": "USA",
-        "dept": "IT",
-        "role": ["IN135"],
-        "empNo": "TZ567890",
-        "status": "In Active",
-        "joinDate": "25/01/2016",
-        "dob": "17/01/2004",
-        "projectAssigned": "dummy project 1",
-        "managerAssigned": "manager 1",
-        "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
-    },
-    {
-        "img": "../assets/images/dummy-profile-image.jpg",
-        "fname": "Prashant",
-        "lname": "Kumar",
-        "email": "prashant.k@tezo.com",
-        "location": "USA",
-        "dept": "IT",
-        "role":"",
-        "empNo": "TZ5678",
-        "status": "In Active",
-        "joinDate": "25/01/2016",
-        "dob": "17/01/2004",
-        "projectAssigned": "dummy project 1",
-        "managerAssigned": "manager 1",
-        "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
-    },
+    }
 ];
 
 var allRoles = [
@@ -274,8 +206,8 @@ for (let i = 0; i < sideSec.length; i++) {
 
 window.addEventListener("resize", function () {
     if (window.matchMedia("(max-width: 720px)").matches) {
-        document.getElementsByClassName('logo')[0].src = "/assets/images/tezo-logo-min.png";
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
     } else {
-        document.getElementsByClassName('logo')[0].src = "/assets/images/tezo-logo.png";
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
     }
 })

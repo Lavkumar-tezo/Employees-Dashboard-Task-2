@@ -83,11 +83,11 @@ function openEditEmployeeForm() {
         element.value = setFormData[selector];
       }
     }
-    let selectedEmpRole=allRoles.filter(function(obj){
-      return obj.roleId==selectedEmp.role;
+    let selectedEmpRole=allRoles.filter(function(role){
+      return role.roleId==selectedEmp.role;
     })
     if(selectedEmpRole.length!=0)
-      document.querySelector('#edit-emp-role').value=selectedEmpRole[0].role.toLowerCase()
+      document.querySelector('#edit-emp-role').value=selectedEmpRole[0].role.toLowerCase();
     else
     document.querySelector('#edit-emp-role').value='';
     let selectedEmpDOB = `${selectedEmp.dob.substring(6, 11)}-${selectedEmp.dob.substring(3, 5)}-${selectedEmp.dob.substring(0, 2)}`;
@@ -115,7 +115,7 @@ function closeEditEmployeeForm() {
 }
 
 function validateField(form, flag = true, mode) {
-    const DangerInputName = {
+    const dangerInputName = {
       "img": "Image",
       "fname": "First Name",
       "lname": "Last Name",
@@ -137,7 +137,7 @@ function validateField(form, flag = true, mode) {
       if (element.name == 'empNo') {
         let empNo = element.value.toUpperCase()
         if (empNo == "") {
-          showValidInput(element, `&#9888; ${DangerInputName[element.name]} is required`, flag);
+          showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required`, flag);
           check = 0
         }
         else if (!empNo.startsWith("TZ")) {
@@ -145,13 +145,13 @@ function validateField(form, flag = true, mode) {
           check = 0;
         }
         else if(!empNo.match(/^TZ[0-9]+$/)){
-          showValidInput(element, `&#9888; ${DangerInputName[element.name]} should have number starting with TZ`, flag);
+          showValidInput(element, `&#9888; ${dangerInputName[element.name]} should have number starting with TZ`, flag);
           check = 0
         }
         else if (empNo.startsWith("TZ") && mode == 'add') {
           for (let i = 0; i < employeeList.length; i++) {
             if (employeeList[i].empNo == empNo) {
-              showValidInput(element, `&#9888;This empNo is already taken`, flag)
+              showValidInput(element, `&#9888;This Emp Number is already taken`, flag)
               check = 0;
             }
           }
@@ -161,7 +161,7 @@ function validateField(form, flag = true, mode) {
       else if (element.name == 'number') {
         let empNum = element.value
         if (empNum == "") {
-          showValidInput(element, `&#9888; ${DangerInputName[element.name]} is required`, flag);
+          showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required`, flag);
           check = 0
         }
         else if (empNum.length != 10) {
@@ -172,7 +172,7 @@ function validateField(form, flag = true, mode) {
       else if (element.type == 'email') {
         let email = element.value.toLowerCase();
         if (!email.endsWith("tezo.com")) {
-          showValidInput(element, `&#9888;email should be of tezo`,flag)
+          showValidInput(element, `&#9888;Email should be of tezo`,flag)
           check = 0;
         }
       }
@@ -180,24 +180,23 @@ function validateField(form, flag = true, mode) {
         if (element.name != "dob") {
           if (element.name)
             if (element.value == "") {
-              showValidInput(element, `&#9888; ${DangerInputName[element.name]} is required`, flag);
+              showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required`, flag);
               check = 0;
             }
         } else if (element.value == "") {
           showValidInput(
             element.parentElement,
-            `&#9888; ${DangerInputName[element.name]}  is required`, flag
+            `&#9888; ${dangerInputName[element.name]} is required`, flag
           );
           check = 0;
         }
       }
-  
     }
     let formSelect = form.getElementsByTagName('select');
     for (let key in formSelect) {
       let element = formSelect[key];
       if (element.value == "" && element.name!='role') {
-        showValidInput(element, `&#9888; ${DangerInputName[element.name]} is required field`, flag)
+        showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required field`, flag)
         check = 0;
       }
     }
