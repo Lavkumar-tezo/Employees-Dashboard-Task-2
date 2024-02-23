@@ -34,21 +34,14 @@ function hidePopUp() {
 }
 
 function createToastMessage(message){
-    let toastDiv = document.createElement("div");
-    toastDiv.classList.add("toast", "flex-container");
-    let tickContainer = document.createElement("div");
-    tickContainer.classList.add("toast-tick-container", "flex-container");
-    let tickImg = document.createElement("img");
-    tickImg.src = "../assets/icons/tick.svg";
-    tickImg.alt = "tick";
+    let toastDiv=createNewElement('div',"toast", "flex-container")
+    let tickContainer=createNewElement('div',"toast-tick-container", "flex-container")
+    let tickImg=createNewElementWithAttr('img',['src',"../assets/icons/tick.svg"],['alt','tick']);
     tickContainer.appendChild(tickImg);
     let textSpan = document.createElement("span");
     textSpan.textContent = message;
-    let crossContainer = document.createElement("div");
-    crossContainer.classList.add("toast-cross-container", "flex-container");
-    let crossImg = document.createElement("img");
-    crossImg.src = "../assets/icons/cross.svg";
-    crossImg.alt = "cross";
+    let crossContainer=createNewElement('div',"toast-cross-container", "flex-container")
+    let crossImg=createNewElementWithAttr('img',['src',"../assets/icons/cross.svg"],['alt','cross'])
     crossContainer.addEventListener('click',hidePopUp)
     crossContainer.appendChild(crossImg);
     tickContainer.appendChild(tickImg);
@@ -86,25 +79,19 @@ function toggleOptions(event,check) {
 }
 
 function createEmployeeDiv(employee, main, flag = false) {
-    let div = document.createElement("div");
-    div.className = "employee-name-img w-100";
-    let label = document.createElement("label");
-    label.className = "assignable-employee d-flex jus-content-btw";
-    let detail = document.createElement("div");
-    detail.className = "assign-emp-detail d-flex";
-    let img = document.createElement("img");
-    img.src = employee.img;
-    img.alt = "employee-image";
+    let div=createNewElement('div',"employee-name-img","w-100")
+    let label=createNewElement('label',"assignable-employee","d-flex","jus-content-btw")
+    let detail=createNewElement('div','assign-emp-detail','d-flex')
+    let img=createNewElementWithAttr('img',['src',employee.img],['alt','employee-image'])
     let span = document.createElement("span");
     let employeeName = `${employee.fname} ${employee.lname}`
-    span.textContent = employeeName;
+    span.textContent = `${employeeName} (${employee.empNo})`;
     (employeeName.length > 18) ? span.setAttribute('title', employeeName) : span.setAttribute('title', '')
-    let input = document.createElement("input");
-    input.type = "checkbox";
+    let input=createNewElementWithAttr('input',['type','checkbox'])
     input.checked = flag;
     input.addEventListener('click',(event)=>{
         updateInput(event.target.parentElement.parentElement.parentElement.parentElement,'all-employees','added-emp-number');
-      })
+    })
     detail.appendChild(img);
     detail.appendChild(span);
     label.appendChild(detail);
@@ -115,4 +102,17 @@ function createEmployeeDiv(employee, main, flag = false) {
     empid.classList.add('hide');
     div.appendChild(empid);
     main.appendChild(div);
+}
+
+function createNewElement(type,...classes){
+  let element=document.createElement(`${type}`);
+  element.classList.add(...classes);
+  return element;
+}
+
+function createNewElementWithAttr(type,...attrArray){
+  let element=document.createElement(`${type}`);
+  for(let i=0;i<attrArray.length;i++)
+    element.setAttribute(`${attrArray[i][0]}`,`${attrArray[i][1]}`)  
+  return element;
 }

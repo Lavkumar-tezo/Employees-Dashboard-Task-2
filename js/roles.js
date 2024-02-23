@@ -3,60 +3,41 @@ var employeeList;
 
 function createRoleCard(data) {
   const parent = document.querySelector('.role-card-container');
-  const roleCard = document.createElement("div");
-  roleCard.className = "role-card flex-container flex-col";
-  const roleName = document.createElement("div");
-  roleName.className = "role-title-icon d-flex jus-content-btw w-100";
-  const roleTitle = document.createElement("div");
-  roleTitle.className = "role-title";
+  let roleCard=createNewElement('div',"role-card","flex-container","flex-col")
+  let roleName=createNewElement('div',"role-title-icon","d-flex","jus-content-btw","w-100")
+  let roleTitle=createNewElement('div','role-title')
   roleTitle.textContent = data.role;
-  const editIcon = document.createElement("img");
-  editIcon.src = "../assets/icons/edit.svg";
-  editIcon.alt = "edit-icon";
+  let editIcon=createNewElementWithAttr('img',['src',"../assets/icons/edit.svg"],['alt','edit-icon'])
   editIcon.addEventListener('click',(event)=>{
     openEditRoleForm(event)
   })
   roleName.appendChild(roleTitle);
   roleName.appendChild(editIcon);
-  const roleDetails = document.createElement("div");
-  roleDetails.className = "w-100 role-details flex-container flex-col";
-  const roleDepartment = document.createElement("div");
-  roleDepartment.className = "role-department d-flex jus-content-btw w-100";
-  const deptIcon = document.createElement("div");
-  deptIcon.className = "dept-icon d-flex";
-  const deptImg = document.createElement("img");
-  deptImg.src = "../assets/icons/emp-id.svg";
-  deptImg.alt = "department-icon";
+  let roleDetails=createNewElement('div',"w-100","role-details","flex-container","flex-col")
+  let roleDepartment=createNewElement('div',"role-department","d-flex","jus-content-btw","w-100")
+  let deptIcon=createNewElement('div','dept-icon','d-flex')
+  let deptImg=createNewElementWithAttr('img',['src',"../assets/icons/emp-id.svg"],['alt','department-icon'])
   const deptLabel = document.createTextNode("Department");
   deptIcon.appendChild(deptImg);
   deptIcon.appendChild(deptLabel);
-  const roleDeptName = document.createElement("div");
-  roleDeptName.className = "role-dept-name";
+  let roleDeptName=createNewElement('div','role-dept-name')
   roleDeptName.textContent = data.dept;
   roleDepartment.appendChild(deptIcon);
   roleDepartment.appendChild(roleDeptName);
-  const roleLocation = document.createElement("div");
-  roleLocation.className = "role-department d-flex jus-content-btw w-100";
-  const locIcon = document.createElement("div");
-  locIcon.className = "dept-icon d-flex";
-  const locImg = document.createElement("img");
-  locImg.src = "../assets/icons/location.svg";
-  locImg.alt = "location-icon";
+  let roleLocation=createNewElement('div','role-department','d-flex','jus-content-btw','w-100')
+  let locIcon=createNewElement('div','dept-icon','d-flex')
+  let locImg=createNewElementWithAttr('img',['src',"../assets/icons/location.svg"],['alt','location-icon'])
   const locLabel = document.createTextNode("Location");
   locIcon.appendChild(locImg);
   locIcon.appendChild(locLabel);
-  const roleLocName = document.createElement("div");
-  roleLocName.className = "role-dept-location";
+  let roleLocName=createNewElement('div','role-dept-location')
   roleLocName.textContent = data.location;
   roleLocation.appendChild(locIcon);
   roleLocation.appendChild(roleLocName);
-  const totalEmployee = document.createElement("div");
-  totalEmployee.className = "role-department d-flex jus-content-btw w-100";
-  const totalLabel = document.createElement("div");
-  totalLabel.className = "dept-icon";
+  let totalEmployee=createNewElement('div','role-department','d-flex','jus-content-btw','w-100');
+  let totalLabel=createNewElement('div','dept-icon')
   totalLabel.textContent = "Total Employee";
-  const emplProfileContainer = document.createElement("div");
-  emplProfileContainer.className = "empl-profile-container d-flex jus-content-btw";
+  let emplProfileContainer=createNewElement('div',"empl-profile-container","d-flex","jus-content-btw")
   let minimumProfie = Math.min(data.profiles.length,4);
   for (let i = 0; i < minimumProfie; i++) {
     const profileImg = document.createElement("img");
@@ -90,16 +71,12 @@ function createRoleCard(data) {
   roleDetails.appendChild(roleDepartment);
   roleDetails.appendChild(roleLocation);
   roleDetails.appendChild(totalEmployee);
-  const viewAllContainer = document.createElement("a");
-  viewAllContainer.className = "anchor view-all-container";
+  let viewAllContainer=createNewElement('a','anchor','view-all-container')
   viewAllContainer.href =`../HTML/role-details.html?selectedRole=${data.role}`;
   viewAllContainer.title = 'employee-page';
-  const viewAll = document.createElement("div");
-  viewAll.className = "view-all-container d-flex";
+  let viewAll=createNewElement('div','view-all-container','d-flex')
   viewAll.innerText="View all Employee";
-  const rightArrow = document.createElement("img");
-  rightArrow.src = "../assets/icons/Vector.svg";
-  rightArrow.alt = "right-arrow";
+  let rightArrow=createNewElementWithAttr('img',['src',"../assets/icons/Vector.svg"],['alt','right-arrow'])
   viewAll.appendChild(rightArrow);
   viewAllContainer.appendChild(viewAll);
   roleCard.appendChild(roleName);

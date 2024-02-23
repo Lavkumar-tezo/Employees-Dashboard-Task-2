@@ -2,97 +2,63 @@ var allRoles;
 var employeeList;
 var selectedRole;
 function createRoleCard(employee) {
-    const cardContainer = document.createElement('div');
-    cardContainer.classList.add('role-card', 'flex-container', 'flex-col', 'employee-card');
-    const empCardDetail = document.createElement('div');
-    empCardDetail.classList.add('employee-card-title', 'w-100', 'd-flex');
-    const profileImage = document.createElement('img');
-    profileImage.src = employee.img;
-    profileImage.alt = 'admin';
+    let cardContainer=createNewElement('div',"role-card","flex-container","flex-col",'employee-card')
+    let empCardDetail=createNewElement('div','employee-card-title', 'w-100', 'd-flex')
+    let profileImage= createNewElementWithAttr('img',['src',employee.img],['alt','admin'])
     profileImage.classList.add('employee-card-img');
-    const employeeDetails = document.createElement('div');
-    employeeDetails.classList.add('employee-detail');
-    const employeeName = document.createElement('div');
-    employeeName.classList.add('employee-name');
+    let employeeDetails=createNewElement('div','employee-detail')
+    let employeeName=createNewElement('div','employee-name')
     employeeName.textContent = `${employee.fname} ${employee.lname}`;
     employeeDetails.appendChild(employeeName);
-    const employeeDept = document.createElement('div');
+    let employeeDept=createNewElement('div','employee-dept')
     employeeDept.textContent = selectedRole.role;
-    employeeDept.classList.add('employee-dept')
     employeeDetails.appendChild(employeeDept);
     empCardDetail.appendChild(profileImage);
     empCardDetail.appendChild(employeeDetails);
     cardContainer.appendChild(empCardDetail);
-    const employeeContainer = document.createElement("div");
-    employeeContainer.classList.add("w-100", "role-details");
-    const departmentIcon = document.createElement("div");
-    departmentIcon.classList.add("dept-icon", "d-flex");
-    let deptImage = document.createElement('img');
-    deptImage.src = "../assets/icons/emp-id.svg";
-    deptImage.alt = "department-id";
+    let employeeContainer=createNewElement('div','w-100','role-details')
+    let departmentIcon=createNewElement('div','dept-icon','d-flex')
+    let deptImage=createNewElementWithAttr('img',['src',"../assets/icons/emp-id.svg"],['alt','department-id'])
     departmentIcon.appendChild(deptImage)
-    const departmentId = document.createElement("div");
-    departmentId.classList.add("emp-office-detail");
+    let departmentId=createNewElement('div','emp-office-detail')
     departmentId.textContent = employee.empNo;
-    const departmentDetails = document.createElement("div");
-    departmentDetails.classList.add("role-department", "d-flex", "w-100", "jus-content-start");
+    let departmentDetails=createNewElement('div',"role-department", "d-flex", "w-100", "jus-content-start")
     departmentDetails.appendChild(departmentIcon);
     departmentDetails.appendChild(departmentId);
     employeeContainer.appendChild(departmentDetails);
-    const emailIcon = document.createElement("div");
-    emailIcon.classList.add("dept-icon", "d-flex");
-    let emailImage = document.createElement('img');
-    emailImage.src = "../assets/icons/email.svg";
-    emailImage.alt = "email-icon";
+    let emailIcon=createNewElement('div',"dept-icon", "d-flex")
+    let emailImage=createNewElementWithAttr('img',['src',"../assets/icons/email.svg"],['alt','email-icon'])
     emailIcon.appendChild(emailImage)
-    const emailAddress = document.createElement("div");
-    emailAddress.classList.add("emp-office-detail");
+    let emailAddress=createNewElement('div','emp-office-detail')
     emailAddress.textContent = employee.email;
-    const emailDetails = document.createElement("div");
-    emailDetails.classList.add("role-department", "d-flex", "w-100", "jus-content-start");
+    let emailDetails=createNewElement('div',"role-department", "d-flex", "w-100", "jus-content-start")
     emailDetails.appendChild(emailIcon);
     emailDetails.appendChild(emailAddress);
     employeeContainer.appendChild(emailDetails);
-    const teamIcon = document.createElement("div");
-    teamIcon.classList.add("dept-icon", "d-flex");
-    let teamImage = document.createElement('img');
-    teamImage.src = "../assets/icons/team.svg";
-    teamImage.alt = "team-icon";
+    let teamIcon=createNewElement('div',"dept-icon", "d-flex")
+    let teamImage=createNewElementWithAttr('img',['src',"../assets/icons/team.svg"],['alt','team-icon'])
     teamIcon.appendChild(teamImage)
-    const teamRole = document.createElement("div");
-    teamRole.classList.add("emp-office-detail");
+    let teamRole=createNewElement('div','emp-office-detail')
     teamRole.textContent = employee.dept;
-    const teamDetails = document.createElement("div");
-    teamDetails.classList.add("role-department", "d-flex", "w-100", "jus-content-start");
+    let teamDetails=createNewElement('div',"role-department", "d-flex", "w-100", "jus-content-start")
     teamDetails.appendChild(teamIcon);
     teamDetails.appendChild(teamRole);
     employeeContainer.appendChild(teamDetails);
-    const locationIcon = document.createElement("div");
-    locationIcon.classList.add("dept-icon", "d-flex");
-    let locationImage = document.createElement('img');
-    locationImage.src = "../assets/icons/location.svg";
-    locationImage.alt = "location-icon";
+    let locationIcon=createNewElement('div',"dept-icon", "d-flex")
+    let locationImage=createNewElementWithAttr('img',['src',"../assets/icons/location.svg"],['alt','location-icon'])
     locationIcon.appendChild(locationImage)
-    const locationAddress = document.createElement("div");
-    locationAddress.classList.add("emp-office-detail");
+    let locationAddress=createNewElement('div','emp-office-detail')
     locationAddress.textContent = employee.location;
-    const locationDetails = document.createElement("div");
-    locationDetails.classList.add("role-department", "d-flex", "w-100", "jus-content-start");
+    let locationDetails=createNewElement('div',"role-department", "d-flex", "w-100", "jus-content-start")
     locationDetails.appendChild(locationIcon);
     locationDetails.appendChild(locationAddress);
     employeeContainer.appendChild(locationDetails);
     cardContainer.append(employeeContainer);
-    const viewAllLink = document.createElement("a");
-    viewAllLink.href = "#";
-    viewAllLink.title = "employee-page";
-    viewAllLink.target = "_blank";
+    let viewAllLink=createNewElementWithAttr('a',['href','#'],['title','employee-page'],['target','_blank'])
     viewAllLink.classList.add('anchor', 'view-all-container')
-    const viewAllText = document.createElement("div");
-    viewAllText.classList.add("view-all", "d-flex");
+    let viewAllText=createNewElement('div',"view-all", "d-flex")
     viewAllText.textContent = "View ";
-    const arrowIcon = document.createElement("img");
-    arrowIcon.src = "../assets/icons/Vector.svg";
-    arrowIcon.alt = "right-arrow";
+    let arrowIcon=createNewElementWithAttr('img',['src',"../assets/icons/Vector.svg"],['alt','right-arrow'])
     viewAllText.appendChild(arrowIcon);
     viewAllLink.appendChild(viewAllText);
     cardContainer.appendChild(viewAllLink);

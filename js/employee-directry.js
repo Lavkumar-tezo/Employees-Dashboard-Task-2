@@ -1,72 +1,48 @@
 var employeeList
 var allRoles
 function insertEmployee(employee) {
-  let tr = document.createElement("tr");
-
-  tr.classList.add("emp-table-row");
-  let tdCheckbox = document.createElement("td");
-  tdCheckbox.classList.add("selected-employee");
-  let inputCheckbox = document.createElement("input");
-  inputCheckbox.setAttribute("type", "checkbox");
-  inputCheckbox.setAttribute("name", "select");
+  let tr=createNewElement("tr","emp-table-row");
+  let tdCheckbox = createNewElement("td","selected-employee");
+  let inputCheckbox=createNewElementWithAttr('input',["type", "checkbox"],["name", "select"])
   inputCheckbox.classList.add("select");
   inputCheckbox.addEventListener("click", findSelectedRow);
   tdCheckbox.appendChild(inputCheckbox);
   tr.appendChild(tdCheckbox);
-
-  let tdProfile = document.createElement("td");
-  tdProfile.classList.add("d-flex", "jus-content-start", "emp-profile");
-  let tdProfileContainer=document.createElement('div');
-  tdProfileContainer.classList.add("d-flex",'empl-profile-detail');
-  let profilDiv = document.createElement("div");
-  profilDiv.classList.add("emp-profile-container", "flex-container");
-  let imgProfile = document.createElement("img");
-  if(!employee.img){
+  let tdProfile=createNewElement("td","d-flex", "jus-content-start", "emp-profile");
+  let tdProfileContainer=createNewElement("div","d-flex",'empl-profile-detail')
+  let profilDiv=createNewElement("div","emp-profile-container", "flex-container")
+  if(!employee.img)
     employee.img="../assets/images/dummy-profile-image.jpg"
-  }
-  imgProfile.setAttribute("src",employee.img);
-  imgProfile.setAttribute("alt", "employee-image");
+  let imgProfile=createNewElementWithAttr("img",["src",employee.img],["alt", "employee-image"]);
   imgProfile.classList.add("employee-img");
   profilDiv.appendChild(imgProfile);
   tdProfileContainer.appendChild(profilDiv);
-  let divProfile = document.createElement("div");
-  divProfile.classList.add("employee-profile", "d-flex", "flex-col");
-  let spanName = document.createElement("span");
-  spanName.classList.add("employee-name");
+  let divProfile=createNewElement("div","employee-profile", "d-flex", "flex-col");
+  let spanName=createNewElement('span','employee-name');
   let employeeName = `${employee.fname} ${employee.lname}`;
   spanName.textContent = employeeName;
   (employeeName.length > 18) ? spanName.setAttribute('title', employeeName) : spanName.setAttribute('title', '')
   divProfile.appendChild(spanName);
-  let spanEmail = document.createElement("span");
-  spanEmail.classList.add("employee-email");
+  let spanEmail=createNewElement('span','employee-email');
   spanEmail.textContent = employee.email;
   (employee.email.length > 18) ? spanEmail.setAttribute('title', employee.email) : spanEmail.setAttribute('title', '')
   divProfile.appendChild(spanEmail);
   tdProfileContainer.appendChild(divProfile);
   tdProfile.appendChild(tdProfileContainer)
   tr.appendChild(tdProfile);
-
-  let tdLocation = document.createElement("td");
-  tdLocation.classList.add("employee-location");
+  let tdLocation=createNewElement('td','employee-location')
   tdLocation.textContent = employee.location;
   tr.appendChild(tdLocation);
-
-  let tdDepartment = document.createElement("td");
-  tdDepartment.classList.add("employee-department");
+  let tdDepartment=createNewElement('td','employee-department')
   tdDepartment.textContent = employee.dept;
   tr.appendChild(tdDepartment);
-
-  let tdRole = document.createElement("td");
-  tdRole.classList.add("employee-role");
-
-
+  let tdRole=createNewElement('td','employee-role')
   let roleDiv=document.createElement('div');
   if(employee.role){
     let roleName;
     for(let i=0;i<allRoles.length;i++){
-      if(allRoles[i].roleId==employee.role){
+      if(allRoles[i].roleId==employee.role)
         roleName=allRoles[i].role;
-      }
     }
     roleDiv.textContent=roleName;
   }
@@ -74,56 +50,34 @@ function insertEmployee(employee) {
     roleDiv.textContent='N/A';
   tdRole.appendChild(roleDiv);
   tr.appendChild(tdRole);
-
-  let tdEmpNo = document.createElement("td");
-  tdEmpNo.classList.add("employee-no");
+  let tdEmpNo=createNewElement('td','employee-no');
   tdEmpNo.textContent = employee.empNo;
   tr.appendChild(tdEmpNo);
-
-  let tdStatus = document.createElement("td");
-  tdStatus.classList.add("employee-status");
-  let spanStatus = document.createElement("span");
-  spanStatus.classList.add("employee-status-value");
-  if (employee.status) {
-    spanStatus.textContent = employee.status;
-  } else {
-    spanStatus.textContent = "Active";
-  }
+  let tdStatus=createNewElement('td','employee-status')
+  let spanStatus=createNewElement("span","employee-status-value")
+  spanStatus.textContent = employee.status ? employee.status : "Active";
   tdStatus.appendChild(spanStatus);
   tr.appendChild(tdStatus);
-
-  let tdJoinDate = document.createElement("td");
-  tdJoinDate.classList.add("employee-join-dt");
+  let tdJoinDate=createNewElement('td','employee-join-dt')
   tdJoinDate.textContent = employee.joinDate;
   tr.appendChild(tdJoinDate);
-
-  let tdDots = document.createElement("td");
-  tdDots.classList.add("row-edit-container");
-  let btnDots = document.createElement("button");
-  btnDots.classList.add("three-dots");
-  let imgDots = document.createElement("img");
-  if (employee.dots) imgDots.setAttribute("src", employee.dots);
-  else imgDots.setAttribute("src", "../assets/icons/three-dot.svg");
-  imgDots.setAttribute("alt", "three-dot");
+  let tdDots=createNewElement('td','row-edit-container')
+  let btnDots=createNewElement('button','three-dots')
+  let imgDots=createNewElementWithAttr('img',["src", "../assets/icons/three-dot.svg"],["alt", "three-dot"])
   btnDots.appendChild(imgDots);
   tdDots.appendChild(btnDots);
-  let editDiv = document.createElement("div");
-  editDiv.classList.add("empl-edit-options", "d-flex", "flex-col", "hide");
-  let option1 = document.createElement("span");
+  let editDiv=createNewElement('div',"empl-edit-options", "d-flex", "flex-col", "hide")
+  let option1=createNewElement('span','row-edit')
   option1.innerText = "Edit";
-  option1.classList.add("row-edit");
   editDiv.appendChild(option1);
-  let option2 = document.createElement("span");
+  let option2=createNewElement('span','row-delete')
   option2.innerText = "Delete";
-  option2.classList.add("row-delete");
   editDiv.appendChild(option2);
-  let option3 = document.createElement("option");
+  let option3=createNewElement('option','status-change')
   option3.innerText = "Mark as In Active";
-  option3.classList.add("status-change");
   editDiv.appendChild(option3);
   tdDots.appendChild(editDiv);
   tr.appendChild(tdDots);
-
   let table = document.getElementsByClassName("employee-table-body")[0];
   table.appendChild(tr);
 }

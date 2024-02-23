@@ -116,6 +116,20 @@ var allRoles = [
     }
 ];
 
+let sideSec = document.getElementsByClassName('side-section-card');
+for (let i = 0; i < sideSec.length; i++) {
+    sideSec[i].addEventListener("mouseover", changeIcon);
+    sideSec[i].addEventListener('mouseout', changeIcon);
+}
+
+window.addEventListener("resize", function () {
+    if (window.matchMedia("(max-width: 720px)").matches) {
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
+    } else {
+        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
+    }
+})
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let allEmps = JSON.parse(localStorage.getItem('employeeList'));
     if (allEmps) {
@@ -197,17 +211,3 @@ function changeIcon() {
 
     }
 }
-
-let sideSec = document.getElementsByClassName('side-section-card');
-for (let i = 0; i < sideSec.length; i++) {
-    sideSec[i].addEventListener("mouseover", changeIcon);
-    sideSec[i].addEventListener('mouseout', changeIcon);
-}
-
-window.addEventListener("resize", function () {
-    if (window.matchMedia("(max-width: 720px)").matches) {
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
-    } else {
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
-    }
-})

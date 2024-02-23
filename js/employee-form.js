@@ -1,14 +1,10 @@
 function addRoleOption(form,element){
     let select=form.querySelector(`#${element}`);
-    let selectOption=document.createElement('option');
-    selectOption.value='';
-    selectOption.selected=true;
-    selectOption.hidden=true;
+    let selectOption=createNewElementWithAttr('option',['value',''],['selected',true],['hidden',true])
     selectOption.innerText="Select Role";
     select.appendChild(selectOption);
     allRoles.forEach((obj)=>{
-      let option=document.createElement('option');
-      option.value=obj.role.toLowerCase();
+      let option=createNewElementWithAttr('option',['value',obj.role.toLowerCase()])
       option.innerText=obj.role;
       select.appendChild(option);
     })
@@ -47,12 +43,7 @@ function openEditEmployeeForm() {
     changeElementDisplay(".edit-employee-form-container",'block')
     let serachBarHeight = document.querySelector(".search-container").offsetHeight;
     document.querySelector(".edit-employee-form-container").style.top = `${serachBarHeight + 20}px`;
-    let elementsToHide = [
-      "employees-container",
-      "alphabet-filter",
-      "reset-filter",
-      "employee-table-container",
-    ];
+    let elementsToHide = ["employees-container","alphabet-filter","reset-filter","employee-table-container",];
     elementsToHide.forEach((elementClass) => {
       changeElementDisplay(`.${elementClass}`,'none')
     });
@@ -98,11 +89,7 @@ function openEditEmployeeForm() {
 }
   
 function closeEditEmployeeForm() {
-    let elementsToHide = [
-      "employees-container",
-      "alphabet-filter",
-      "reset-filter",
-    ];
+    let elementsToHide = ["employees-container","alphabet-filter","reset-filter",];
     elementsToHide.forEach((elementClass) => {
       changeElementDisplay(`.${elementClass}`,'flex')
     });
