@@ -36,11 +36,11 @@ function hidePopUp() {
 function createToastMessage(message) {
   let toastDiv = createNewElement('div', "toast", "flex-container")
   let tickContainer = createNewElement('div', "toast-tick-container", "flex-container")
-  let tickImg = createNewElementWithAttr('img', ['src', "../assets/icons/tick.svg"], ['alt', 'tick']);
+  let tickImg = createNewElementWithAttr('img', ['src', "./assets/icons/tick.svg"], ['alt', 'tick']);
   let textSpan = document.createElement("span");
   textSpan.textContent = message;
   let crossContainer = createNewElement('div', "toast-cross-container", "flex-container")
-  let crossImg = createNewElementWithAttr('img', ['src', "../assets/icons/cross.svg"], ['alt', 'cross'])
+  let crossImg = createNewElementWithAttr('img', ['src', "./assets/icons/cross.svg"], ['alt', 'cross'])
   crossContainer.addEventListener('click', hidePopUp);
   toastDiv = addElementToParent(toastDiv, [tickContainer, tickImg], textSpan, [crossContainer, crossImg])
   setTimeout(hidePopUp, 4500);
