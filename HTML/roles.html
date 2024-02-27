@@ -19,7 +19,7 @@
     <div class="sidebar-container flex-container flex-col jus-content-btw">
       <div class="sidebar-main">
         <div class="logo-container flex-container jus-content-btw">
-          <a href="../HTML/emp-directory.html">
+          <a href="../index.html">
             <img src="../assets/images/tezo-logo.png" alt="tezo" class="logo p-5" />
           </a>
           <img src="../assets/images/handle.png" alt="arrow-icon" class="sidebar-min-icon" />
@@ -33,15 +33,16 @@
                 <div class="sec-heading">Dashboard</div>
               </div>
             </div>
-            <a href="../HTML/emp-directory.html" class="anchor">
+            <a href="../index.html" class="anchor">
               <div class="navbar-section-card d-flex jus-content-btw ">
-              <div class="sec-logo-container d-flex">
-                <img src="../assets/icons/employee-black.svg" alt="employee-icon" />
-                <div class="sec-heading">Employees</div>
+                <div class="sec-logo-container d-flex">
+                  <img src="../assets/icons/employee-black.svg" alt="employee-icon" />
+                  <div class="sec-heading">Employees</div>
+                </div>
               </div>
-            </div></a>
-            
-            
+            </a>
+
+
           </div>
         </div>
 
@@ -49,7 +50,7 @@
           <div class="navbar-sec-heading p-5">
             <div class="md-heading">Role / User Management</div>
             <div class="sm-heading">Role</div>
-            
+
           </div>
           <div class="navbar-section-container">
             <a href="../HTML/roles.html" class="anchor">
@@ -63,7 +64,7 @@
                 </div>
               </div>
             </a>
-            
+
             <div class="navbar-section-card flex-container jus-content-btw">
               <div class="sec-logo-container d-flex">
                 <img src="../assets/icons/assign-user-black.svg" alt="" />
@@ -83,28 +84,25 @@
             Allow to launch the new update for the AD Application
           </div>
           <div class="app-update-btns">
-            <a href="#" title="dismiss" class="dismiss-btn btn b-5"
-              >Dismiss</a
-            >
+            <a href="#" title="dismiss" class="dismiss-btn btn b-5">Dismiss</a>
             <a href="#" title="accept" class="accept-btn btn b-5">Accept</a>
           </div>
         </div>
       </div>
-      
+
     </div>
     <div class="content flex-container flex-col jus-content-start w-100">
       <div class="search-container d-flex jus-content-btw w-100 p-5">
         <div class="search-bar flex-container">
-          <img src="../assets/images/bx-search.png" alt="search" class="find-icon"
-          />
+          <img src="../assets/images/bx-search.png" alt="search" class="find-icon" />
           <input type="text" placeholder="Search" class="search-input" />
         </div>
 
         <div class="search-bar-icons d-flex">
-          <img src="../assets/icons/language.svg" alt="Language" class="Language-icon"/>
-          <img src="../assets/icons/categories.svg" alt="categories" class="categories-icon"/>
-          <img src="../assets/icons/mode.svg" alt="mode" class="mode-icon"/>
-          <img src="../assets/icons/notifications.svg" alt="Notifications" class="Notifications-icon"/>
+          <img src="../assets/icons/language.svg" alt="Language" class="Language-icon" />
+          <img src="../assets/icons/categories.svg" alt="categories" class="categories-icon" />
+          <img src="../assets/icons/mode.svg" alt="mode" class="mode-icon" />
+          <img src="../assets/icons/notifications.svg" alt="Notifications" class="Notifications-icon" />
         </div>
         <div class="admin-container flex-container">
           <div class="admin-img-container flex-container">
@@ -114,7 +112,7 @@
             <span class="admin-name">Jhon Abraham</span>
             <span class="admin-role">Admin</span>
           </div>
-          <img src="../assets/icons/arrow-black.svg" alt="arrow-icon" class="drop-down-arrow"/>
+          <img src="../assets/icons/arrow-black.svg" alt="arrow-icon" class="drop-down-arrow" />
         </div>
       </div>
       <div class="employees-container d-flex jus-content-btw w-100">
@@ -131,7 +129,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="reset-filter w-100 d-flex jus-content-btw b-5">
         <div class="filter-opts d-flex">
           <div class="filter-icon-container flex-container">
@@ -175,14 +173,14 @@
               </label>
             </div>
           </div>
-          
+
         </div>
         <div class="btn-container d-flex">
           <button class="btn reset-btn">Reset</button>
           <button class="btn apply-btn">Apply</button>
         </div>
       </div>
-      
+
       <div class="role-card-container w-100 d-grid">
         <div class="no-record-card flex-container">
           No records Found
@@ -193,103 +191,102 @@
       <div class="add-role-container">
         <span class="role-form-heading">Create New Role</span>
         <form class="add-role">
-            <div class="form-main-fields">
-              <div class="role-name-dept d-flex jus-content-btw">
-                <div class="role-name-container">
-                  <label for="role-name">Role Name</label><br>
-                  <input type="text" name="role" id="role-name" placeholder="Role name">
-                  <span></span>
-                </div>
-                <div class="role-dept">
-                  <label for="role-dept">Department</label><br>
-                  <select name="dept" id="role-dept">
-                    <option value="" selected hidden>Selct Department</option>
-                    <option value="ui/ux">UI/UX</option>
-                    <option value="product engg">Product Engg</option>
-                    <option value="it">IT</option>
-                  </select>
-                  <span></span>
-                </div>
+          <div class="form-main-fields">
+            <div class="role-name-dept d-flex jus-content-btw">
+              <div class="role-name-container">
+                <label for="role-name">Role Name</label><br>
+                <input type="text" name="role" id="role-name" placeholder="Role name">
+                <span></span>
               </div>
-              <div class="role-desc">
-                <label for="role-desc">Role Description (optional)</label><br>
-                <textarea name="desc" id="role-desc"></textarea>
-              </div>
-              <div class="role-location">
-                <label for="role-location">Location</label><br>
-                <select name="location" id="role-location">
-                  <option value="" selected hidden>Select Location</option>
-                <option value="hyderabad">HYDERABAD</option>
-                <option value="usa">USA</option>
+              <div class="role-dept">
+                <label for="role-dept">Department</label><br>
+                <select name="dept" id="role-dept">
+                  <option value="" selected hidden>Selct Department</option>
+                  <option value="ui/ux">UI/UX</option>
+                  <option value="product engg">Product Engg</option>
+                  <option value="it">IT</option>
                 </select>
                 <span></span>
               </div>
-              <div class="role-assign-employee">
-                <label for="assign-employees">Assign Employees</label><br>
-                <input type="text" placeholder="search for employee" id="assign-employees">
-                <span class="added-emp-number"></span>
-                <div class="all-employees">
-                </div>
+            </div>
+            <div class="role-desc">
+              <label for="role-desc">Role Description (optional)</label><br>
+              <textarea name="desc" id="role-desc"></textarea>
+            </div>
+            <div class="role-location">
+              <label for="role-location">Location</label><br>
+              <select name="location" id="role-location">
+                <option value="" selected hidden>Select Location</option>
+                <option value="hyderabad">HYDERABAD</option>
+                <option value="usa">USA</option>
+              </select>
+              <span></span>
+            </div>
+            <div class="role-assign-employee">
+              <label for="assign-employees">Assign Employees</label><br>
+              <input type="text" placeholder="search for employee" id="assign-employees">
+              <span class="added-emp-number"></span>
+              <div class="all-employees">
               </div>
             </div>
-            <div class="add-cancel-btns d-flex">
-              <button type="button" value="cancel" class="cancel-add-role b-5">Cancel</button>
-              <button type="submit" value="submit" class="submit-add-role btn b-5">Add Role</button>
-            </div>
+          </div>
+          <div class="add-cancel-btns d-flex">
+            <button type="button" value="cancel" class="cancel-add-role b-5">Cancel</button>
+            <button type="submit" value="submit" class="submit-add-role btn b-5">Add Role</button>
+          </div>
         </form>
       </div>
 
       <div class="edit-role-container">
         <form class="edit-role">
-            <div class="form-main-fields">
-              <div class="role-name-dept d-flex jus-content-btw">
-                <div class="role-name-container">
-                  <label for="role-name">Role Name</label><br>
-                  <input type="text" disabled name="role" id="edit-role-name" placeholder="Role name">
-                  <span></span>
-                </div>
-                <div class="role-dept">
-                  <label for="role-dept">Department</label><br>
-                  <select name="dept" disabled id="edit-role-dept">
-                    <option value="" selected hidden>Selct Department</option>
-                    <option value="ui/ux">UI/UX</option>
-                    <option value="product engg">Product Engg</option>
-                    <option value="it">IT</option>
-                  </select>
-                  <span></span>
-                </div>
+          <div class="form-main-fields">
+            <div class="role-name-dept d-flex jus-content-btw">
+              <div class="role-name-container">
+                <label for="role-name">Role Name</label><br>
+                <input type="text" disabled name="role" id="edit-role-name" placeholder="Role name">
+                <span></span>
               </div>
-              <div class="role-desc">
-                <label for="role-desc">Role Description (optional)</label><br>
-                <textarea name="desc" disabled id="edit-role-desc"></textarea>
-              </div>
-              <div class="role-location">
-                <label for="edit-role-location">Location</label><br>
-                <select name="location" disabled id="edit-role-location">
-                  <option value="" selected hidden>Select Location</option>
-                <option value="hyderabad">HYDERABAD</option>
-                <option value="usa">USA</option>
+              <div class="role-dept">
+                <label for="role-dept">Department</label><br>
+                <select name="dept" disabled id="edit-role-dept">
+                  <option value="" selected hidden>Selct Department</option>
+                  <option value="ui/ux">UI/UX</option>
+                  <option value="product engg">Product Engg</option>
+                  <option value="it">IT</option>
                 </select>
                 <span></span>
               </div>
-              <div class="role-assign-employee">
-                <label for="assign-employees">Assign Employees</label><br>
-                <input type="text" placeholder="search for employee" disabled id="edit-assign-employees">
-                <span class="added-emp-number"></span>
-                <div class="all-employees">
-                </div>
+            </div>
+            <div class="role-desc">
+              <label for="role-desc">Role Description (optional)</label><br>
+              <textarea name="desc" disabled id="edit-role-desc"></textarea>
+            </div>
+            <div class="role-location">
+              <label for="edit-role-location">Location</label><br>
+              <select name="location" disabled id="edit-role-location">
+                <option value="" selected hidden>Select Location</option>
+                <option value="hyderabad">HYDERABAD</option>
+                <option value="usa">USA</option>
+              </select>
+              <span></span>
+            </div>
+            <div class="role-assign-employee">
+              <label for="assign-employees">Assign Employees</label><br>
+              <input type="text" placeholder="search for employee" disabled id="edit-assign-employees">
+              <span class="added-emp-number"></span>
+              <div class="all-employees">
               </div>
             </div>
-            <div class="add-cancel-btns d-flex">
-              <button type="button" value="cancel" class="cancel-edit-role b-5">Cancel</button>
-              <button type="button" value="submit" class="submit-edit-role btn b-5">Edit</button>
-            </div>
+          </div>
+          <div class="add-cancel-btns d-flex">
+            <button type="button" value="cancel" class="cancel-edit-role b-5">Cancel</button>
+            <button type="button" value="submit" class="submit-edit-role btn b-5">Edit</button>
+          </div>
         </form>
       </div>
-      
+
     </div>
   </div>
 </body>
 
 </html>
-
