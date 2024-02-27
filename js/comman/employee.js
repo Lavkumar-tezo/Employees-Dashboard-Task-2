@@ -2,7 +2,7 @@ var sideBarChange = 0;
 var updateContainerFlag = 0;
 var employeeList = [
     {
-        "img": "../assets/images/profile.webp",
+        "img": "./assets/images/profile.webp",
         "fname": "Rajesh",
         "lname": "Singhggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "email": "rajesh.singh@tezo.com",
@@ -16,10 +16,10 @@ var employeeList = [
         "projectAssigned": "dummy project 1",
         "managerAssigned": "manager 1",
         "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
+        "dots": "./assets/icons/three-dot.svg"
     },
     {
-        "img": "../assets/images/dummy-profile-image.jpg",
+        "img": "./assets/images/dummy-profile-image.jpg",
         "fname": "Lisa",
         "lname": "Smith",
         "email": "lisa.smith@tezo.com",
@@ -33,10 +33,10 @@ var employeeList = [
         "projectAssigned": "dummy project 1",
         "managerAssigned": "manager 1",
         "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
+        "dots": "./assets/icons/three-dot.svg"
     },
     {
-        "img": "../assets/images/dummy-profile-image.jpg",
+        "img": "./assets/images/dummy-profile-image.jpg",
         "fname": "Emily",
         "lname": "Jones",
         "email": "emily.jones@tezo.com",
@@ -50,7 +50,7 @@ var employeeList = [
         "projectAssigned": "dummy project 1",
         "managerAssigned": "manager 1",
         "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
+        "dots": "./assets/icons/three-dot.svg"
     }
 ];
 
@@ -107,9 +107,9 @@ for (let i = 0; i < sideSec.length; i++) {
 
 window.addEventListener("resize", function () {
     if (window.matchMedia("(max-width: 720px)").matches) {
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
+        document.getElementsByClassName('logo')[0].src = "./assets/images/tezo-logo-min.png";
     } else {
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
+        document.getElementsByClassName('logo')[0].src = "./assets/images/tezo-logo.png";
     }
 })
 
@@ -134,7 +134,7 @@ function layoutChange() {
     if (window.screen.width > 720 && sideBarChange == 0) {
         document.getElementsByClassName('wrapper')[0].style.gridTemplateColumns = "1fr 20fr";
         document.getElementsByClassName('sidebar-container')[0].style.padding = "0";
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo-min.png";
+        document.getElementsByClassName('logo')[0].src = "./assets/images/tezo-logo-min.png";
         document.getElementsByClassName('logo')[0].style.width = "120%";
         document.getElementsByClassName('sidebar-min-icon')[0].classList.add("sidebar-min-icon-expand");
         document.getElementsByClassName('sm-heading')[0].style.display = "block";
@@ -149,7 +149,7 @@ function layoutChange() {
     else if (window.screen.width > 720 && sideBarChange == 1) {
         document.getElementsByClassName('wrapper')[0].style.gridTemplateColumns = "1fr 4.5fr";
         document.getElementsByClassName('sidebar-container')[0].style.padding = "0 0.5rem";
-        document.getElementsByClassName('logo')[0].src = "../assets/images/tezo-logo.png";
+        document.getElementsByClassName('logo')[0].src = "./assets/images/tezo-logo.png";
         document.getElementsByClassName('logo')[0].style.width = "60%";
         document.getElementsByClassName('sidebar-min-icon')[0].classList.remove("sidebar-min-icon-expand");
         document.getElementsByClassName('sm-heading')[0].style.display = "none";

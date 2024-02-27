@@ -57,7 +57,7 @@ function createRoleCard(data) {
     emplProfileContainer.style.width = `${width}rem`;
   }
   let viewAllContainer = createNewElement('a', 'anchor', 'view-all-container')
-  viewAllContainer.href = `../HTML/role-details.html?selectedRole=${data.role}`;
+  viewAllContainer.href = `./role-details.html?selectedRole=${data.role}`;
   viewAllContainer.title = 'employee-page';
   let viewAll = createNewElement('div', 'view-all-container', 'd-flex')
   viewAll.innerText = "View all Employee";
