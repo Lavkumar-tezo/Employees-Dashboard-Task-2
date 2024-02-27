@@ -7,14 +7,12 @@
     --green-800: #008000;
     --blue-100: #B0B9C0;
     --white: #ffffff;
-    --white-900: #ffffff;
     --red-400: #FDE9E9;
     --red-800: #F44848;
     --red-100: #FDE6E6;
     --grey-100: #F7F8F9;
     --grey-400: #A7A9AB;
-    --select-Bg: rgba(244, 245, 247, 255);
-    --input-Bg:rgba(227, 229, 233, 255);
+    --white-800:rgba(227, 229, 233, 255);
 }
 
 .employee-form-container,
@@ -44,7 +42,7 @@
 .employee-form input,
 .edit-employee-form input {
     outline: 0;
-    border: 2px solid var(--input-Bg);
+    border: 2px solid var(--white-800);
     border-radius: 2px;
     padding-left: 0.25rem;
 }
@@ -141,7 +139,7 @@ select,
 }
 
 .dob-input {
-    border: 2px solid var(--input-Bg);
+    border: 2px solid var(--white-800);
     border-radius: 3px;
     padding-left: 4px;
     gap: 4px;
@@ -153,7 +151,7 @@ select,
 }
 
 .employement-info-container select {
-    background-color: var(--select-Bg);
+    background-color: var(--grey-100);
     border: none;
 }
 

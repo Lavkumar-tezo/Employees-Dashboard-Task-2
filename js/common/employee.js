@@ -1,5 +1,5 @@
 var sideBarChange = 0;
-var updateContainerFlag = 0;
+var isHidden = 0;
 var employeeList = [
     {
         "img": "./assets/images/profile.webp",
@@ -99,10 +99,19 @@ var allRoles = [
     }
 ];
 
-let sideSec = document.getElementsByClassName('navbar-section-card');
+let sideSec = document.getElementsByClassName('navbar-item');
 for (let i = 0; i < sideSec.length; i++) {
     sideSec[i].addEventListener("mouseover", changeIcon);
     sideSec[i].addEventListener('mouseout', changeIcon);
+}
+function setTableHeight(){
+    let contentDivHeight=document.querySelector(".content").offsetHeight;
+    let serachBarHeight = document.querySelector(".search-container").offsetHeight;
+    let employeeContainerHeight=document.querySelector(".employees-container").offsetHeight;
+    let alphabetFilterHeight=document.querySelector(".alphabet-filter").offsetHeight;
+    let resetFilterHeight=document.querySelector(".reset-filter").offsetHeight;
+    let employeeTable=document.querySelector(".employee-table-container");
+    employeeTable.style.minHeight=`${contentDivHeight-serachBarHeight-employeeContainerHeight-alphabetFilterHeight-resetFilterHeight-100}px`;
 }
 
 window.addEventListener("resize", function () {
@@ -111,6 +120,7 @@ window.addEventListener("resize", function () {
     } else {
         document.getElementsByClassName('logo')[0].src = "./assets/images/tezo-logo.png";
     }
+    setTableHeight()
 })
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -158,7 +168,7 @@ function layoutChange() {
         for (let i = 0; i < allSecHeading.length; i++) {
             allSecHeading[i].style.display = "block";
         }
-        if (updateContainerFlag != 1)
+        if (isHidden != 1)
             document.getElementsByClassName('app-update-container')[0].style.display = "block";
         sideBarChange = 0;
     }
@@ -166,11 +176,11 @@ function layoutChange() {
 
 function dismissBtn() {
     document.getElementsByClassName("app-update-container")[0].style.display = "none";
-    updateContainerFlag = 1;
+    isHidden = 1;
 }
 
 function changeIcon() {
-    if (this.classList.contains("sidebar-active-card") == false) {
+    if (this.classList.contains("active") == false) {
         let imgSrc = this.getElementsByTagName('img')[0].getAttribute('src');
         if (imgSrc.indexOf("black") > -1) {
             let newImgSrc = imgSrc.replace("black", "red");

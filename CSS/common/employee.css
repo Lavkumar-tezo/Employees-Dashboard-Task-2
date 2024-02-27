@@ -7,17 +7,17 @@
 }
 :root {
     --blue: #1e90ff;
-    --blue-200:#4C5F71;
-    --blue-150:#8B95A7;
-    --green-800:#008000;
-    --blue-100:#B0B9C0;
+    --blue-200: #4C5F71;
+    --blue-150: #8B95A7;
+    --green-800: #008000;
+    --blue-100: #B0B9C0;
     --white: #ffffff;
-    --white-900:#ffffff;
-    --red-400:#FDE9E9;
-    --red-800:#F44848;
-    --red-100:#FDE6E6;
-    --grey-100:#F7F8F9;
-    --grey-400:#A7A9AB;
+    --red-400: #FDE9E9;
+    --red-800: #F44848;
+    --red-100: #FDE6E6;
+    --grey-100: #F7F8F9;
+    --grey-400: #A7A9AB;
+    --white-800:rgba(227, 229, 233, 255);
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
@@ -107,7 +107,7 @@ body{
 .sm-heading{
     display: none;
 }
-.sec-logo-container{
+.navbar-item-logo{
     gap:5px;
 }
 .all-active-card{
@@ -119,24 +119,22 @@ body{
     text-decoration: none;
     color: inherit;
 }
-.navbar-section-card{
+.navbar-item{
     position: relative;
     padding:0.5rem;
     color:var(--grey-400);
 }
-.navbar-section-card:hover{
+.navbar-item:hover{
     cursor: pointer;
     border-radius: 5px;
     background-color:var(--red-400);
     color:var(--red-800);
 }
-.sidebar-active-card{
-    cursor: pointer;
-    border-radius: 5px;
+.navbar-item.active{
     background-color:var(--red-400);
     color:var(--red-800);
 }
-.sidebar-active-card .sec-logo-container::after{
+.navbar-item.active .navbar-item-logo::after{
     content:"";
     width:3px;
     border-radius: 4px 0px 0px 4px;
@@ -146,8 +144,7 @@ body{
     right:-0.5rem;
     top:0;
 }
-.sec-heading{
-    
+.navbar-item-title{
     font-size: 0.7rem;
 }
 .active-drop-arrow{
@@ -398,7 +395,7 @@ body{
     .md-heading{
         display: none;
     }
-    .sec-heading{
+    .navbar-item-title{
         display:none;
     }
     .app-update-container{

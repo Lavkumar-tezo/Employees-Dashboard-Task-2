@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
     });
   }
+  setTableHeight()
   const currDate = new Date();
   const todayDate = formatDate(currDate);
   const lastWeek = new Date(currDate.getTime() - 7 * 24 * 60 * 60 * 1000);

@@ -5,14 +5,13 @@
     --green-800: #008000;
     --blue-100: #B0B9C0;
     --white: #ffffff;
-    --white-900: #ffffff;
     --red-400: #FDE9E9;
     --red-800: #F44848;
     --red-100: #FDE6E6;
     --grey-100: #F7F8F9;
     --grey-400: #A7A9AB;
-    --slectBg: rgba(244, 245, 247, 255);
-    --activInput: rgba(142, 191, 255, 255);
+    --white-800:rgba(227, 229, 233, 255);
+    --blue-800:rgba(142, 191, 255, 255)
 }
 
 .add-role-container,
@@ -57,7 +56,7 @@
 .add-role select,
 .edit-role select {
     border: 0;
-    background-color: var(--slectBg);
+    background-color: var(--white-800);
 }
 
 .form-main-fields {
