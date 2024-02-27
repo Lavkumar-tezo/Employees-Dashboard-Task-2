@@ -98,7 +98,7 @@ body{
     left:5%;
     transform: rotate(180deg);
 }
-.side-sec-heading{
+.navbar-sec-heading{
     text-transform: uppercase;
     white-space: nowrap;
     opacity: 0.4;
@@ -119,12 +119,12 @@ body{
     text-decoration: none;
     color: inherit;
 }
-.side-section-card{
+.navbar-section-card{
     position: relative;
     padding:0.5rem;
     color:var(--grey-400);
 }
-.side-section-card:hover{
+.navbar-section-card:hover{
     cursor: pointer;
     border-radius: 5px;
     background-color:var(--red-400);
@@ -389,7 +389,7 @@ body{
         left:5%;
         transform: rotate(180deg);
     }
-    .side-sec-heading{
+    .navbar-sec-heading{
         font-size: 0.8rem;
     }
     .sm-heading{

@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tezo Employee Directory</title>
   <link rel="icon" type="image/x-icon" href="../assets/images/tezo-logo-min.png">
-  <link rel="stylesheet" href="../CSS/employee.css" />
+  <link rel="stylesheet" href="../CSS/comman/employee.css" />
   <link rel="stylesheet" href="../CSS/emp-directory.css" />
   <link rel="stylesheet" href="../CSS/add-employee.css" />
-  <script src="../js/employee.js" defer></script>
-  <script src="../js/extension.js" defer></script>
-  <script src="../js/employee-form.js" defer></script>
+  <script src="../js/comman/employee.js" defer></script>
+  <script src="../js/comman/extension.js" defer></script>
   <script src="../js/employee-directry.js" defer></script>
+  <script src="../js/employee-form.js" defer></script>
 </head>
 <body>
   <div class="wrapper d-grid">
@@ -24,17 +24,17 @@
           <img src="../assets/images/handle.png" alt="arrow-icon" class="sidebar-min-icon" />
         </div>
 
-        <div class="side-sec w-100">
-          <div class="side-sec-heading p-5">All</div>
-          <div class="side-section-container">
-            <div class="side-section-card d-flex jus-content-btw">
+        <div class="navbar-sec w-100">
+          <div class="navbar-sec-heading p-5">All</div>
+          <div class="navbar-section-container">
+            <div class="navbar-section-card d-flex jus-content-btw">
               <div class="sec-logo-container d-flex">
                 <img src="../assets/icons/dashboard-black.svg" alt="Dashboard-icon" />
                 <div class="sec-heading">Dashboard</div>
               </div>
             </div>
             <a href="../HTML/emp-directory.html" class="anchor">
-              <div class="side-section-card sidebar-active-card d-flex jus-content-btw ">
+              <div class="navbar-section-card sidebar-active-card d-flex jus-content-btw ">
                 <div class="sec-logo-container d-flex">
                   <img src="../assets/icons/employee-red.svg" alt="employee-icon" />
                   <div class="sec-heading">Employees</div>
@@ -45,15 +45,15 @@
           </div>
         </div>
 
-        <div class="side-sec w-100 role-manage-sec">
-          <div class="side-sec-heading p-5">
+        <div class="navbar-sec w-100 role-manage-sec">
+          <div class="navbar-sec-heading p-5">
             <div class="md-heading">Role / User Management</div>
             <div class="sm-heading">Role</div>
 
           </div>
-          <div class="side-section-container">
+          <div class="navbar-section-container">
             <a href="../HTML/roles.html" class="anchor side-role-sec">
-              <div class="side-section-card side-role-sec flex-container jus-content-btw">
+              <div class="navbar-section-card side-role-sec flex-container jus-content-btw">
                 <div class="sec-logo-container d-flex">
                   <img src="../assets/icons/role-black.svg" alt="role-icon" />
                   <div class="sec-heading">Role</div>
@@ -64,7 +64,7 @@
               </div>
             </a>
 
-            <div class="side-section-card flex-container jus-content-btw">
+            <div class="navbar-section-card flex-container jus-content-btw">
               <div class="sec-logo-container d-flex">
                 <img src="../assets/icons/assign-user-black.svg" alt="" />
                 <div class="sec-heading">Access Rights</div>
@@ -354,7 +354,7 @@
                 </div>
                 <div class="emp-phone">
                   <label class="form-label" for="new-emp-mobile">Mobile Number</label><br>
-                  <input type="number" maxlength="10" minlength="10" name="mobile" placeholder=" 0000000000" />
+                  <input type="number" maxlength="10" minlength="10" name="mobile" placeholder="0000000000" />
                   <span></span>
                 </div>
               </div>
@@ -468,7 +468,7 @@
                 </div>
                 <div class="emp-phone">
                   <label class="form-label" for="edit-empl-mobile">Mobile Number</label><br>
-                  <input type="number" id="edit-empl-mobile" disabled maxlength="10" minlength="10" name="mobile" placeholder=" 0000000000" />
+                  <input type="number" id="edit-empl-mobile" disabled maxlength="10" minlength="10" name="mobile" placeholder="0000000000" />
                   <span></span>
                 </div>
               </div>

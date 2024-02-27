@@ -206,7 +206,6 @@ th:not(:first-of-type)::after {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  /* width: 100%; */
   display: block;
 }
 
@@ -334,7 +333,7 @@ th:not(:first-of-type)::after {
   outline: 0;
   border: 0;
   border-radius: 5px;
-  background-color: #fff;
+  background-color:var(--white);
   cursor: pointer;
 }
 
@@ -343,9 +342,9 @@ th:not(:first-of-type)::after {
   display: none;
   width: 100%;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--grey-400);
   border-radius: 5px;
-  background-color: #fff;
+  background-color:var(--white);
   overflow-y: auto;
   z-index: 10;
 }
@@ -367,12 +366,12 @@ th:not(:first-of-type)::after {
   display: inline-block;
   width: 0.6rem;
   height: 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--grey-400);
   background-color: #eee;
 }
 
 .custom-option input:checked~.custom-checkmark {
-  background-color: #2196F3;
+  background-color:var(--blue);
 }
 @media screen and (min-width: 1580px) {
   .employee-role div {
@@ -443,12 +442,6 @@ th:not(:first-of-type)::after {
     font-size: 0.9rem;
   }
 }
-
-/* @media screen and (max-width: 520px) {
-  .table-add-delete,.employee-main-table {
-    width: 160%;
-  }
-} */
 @media screen and (max-width: 400px) {
 
   .table-add-delete,

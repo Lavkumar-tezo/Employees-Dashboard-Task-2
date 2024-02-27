@@ -15,7 +15,8 @@
     --activInput: rgba(142, 191, 255, 255);
 }
 
-.add-role-container,.edit-role-container {
+.add-role-container,
+.edit-role-container {
     width: 100%;
     top: 10%;
     height: 88%;
@@ -30,14 +31,16 @@
     font-size: 1rem;
 }
 
-.add-role,.edit-role {
+.add-role,
+.edit-role {
     margin-top: 0.4rem;
     padding-left: 2px;
     font-size: 0.6rem;
 }
 
 .add-role input,
-.add-role textarea,.edit-role input,
+.add-role textarea,
+.edit-role input,
 .edit-role textarea {
     outline: 0;
     border: 2px solid rgba(227, 229, 233, 255);
@@ -45,12 +48,14 @@
     padding-left: 0.25rem;
 }
 
-.add-role label,.edit-role label {
+.add-role label,
+.edit-role label {
     font-weight: 500;
     font-size: 0.7rem;
 }
 
-.add-role select,.edit-role select {
+.add-role select,
+.edit-role select {
     border: 0;
     background-color: var(--slectBg);
 }
@@ -73,28 +78,34 @@
 }
 
 #role-name,
-#role-dept,#edit-role-name,#edit-role-dept {
+#role-dept,
+#edit-role-name,
+#edit-role-dept {
     width: 100%;
 }
 
-#role-desc,#edit-role-desc {
+#role-desc,
+#edit-role-desc {
     width: 100%;
     height: 120px;
     margin-top: 0.5rem;
 }
 
 .add-role input,
-.add-role select,.edit-role input,
+.add-role select,
+.edit-role input,
 .edit-role select {
     margin-top: 0.25rem;
     height: 1.5rem;
 }
 
-.add-role input:focus,.edit-role input:focus {
+.add-role input:focus,
+.edit-role input:focus {
     border-color: var(--blue);
 }
 
-.add-role select:focus,.edit-role select:focus {
+.add-role select:focus,
+.edit-role select:focus {
     border: 2px solid var(--blue);
 }
 
@@ -104,13 +115,16 @@
     position: relative;
 }
 
-#role-location,#edit-role-location,
-#assign-employees, #edit-assign-employees,
+#role-location,
+#edit-role-location,
+#assign-employees,
+#edit-assign-employees,
 .all-employees {
     width: 100%;
 }
 
-#assign-employees::placeholder::after,.edit-assign-employees::placeholder::after {
+#assign-employees::placeholder::after,
+.edit-assign-employees::placeholder::after {
     content: "";
     position: absolute;
     right: 0;
@@ -179,7 +193,8 @@
     margin-top: 3rem;
 }
 
-.cancel-add-role,.cancel-edit-role {
+.cancel-add-role,
+.cancel-edit-role {
     background-color: var(--red-400);
     color: var(--red-800);
     border: 0;
@@ -189,7 +204,8 @@
     cursor: pointer;
 }
 
-.submit-add-role,.submit-edit-role {
+.submit-add-role,
+.submit-edit-role {
     white-space: nowrap;
     cursor: pointer;
 }

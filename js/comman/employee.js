@@ -1,5 +1,5 @@
 var sideBarChange = 0;
-var appUpdate = 0;
+var updateContainerFlag = 0;
 var employeeList = [
     {
         "img": "../assets/images/profile.webp",
@@ -29,23 +29,6 @@ var employeeList = [
         "empNo": "TZ123456",
         "status": "In Active",
         "joinDate": "05/06/2018",
-        "dob": "17/01/2004",
-        "projectAssigned": "dummy project 1",
-        "managerAssigned": "manager 1",
-        "mobile": 1212121212,
-        "dots": "../assets/icons/three-dot.svg"
-    },
-    {
-        "img": "../assets/images/profile.webp",
-        "fname": "Mohammed",
-        "lname": "Ali",
-        "email": "mohammed.ali@tezo.com",
-        "location": "HYDERABAD",
-        "dept": "IT",
-        "role": "IN125",
-        "empNo": "TZ234567",
-        "status": "Active",
-        "joinDate": "10/10/2020",
         "dob": "17/01/2004",
         "projectAssigned": "dummy project 1",
         "managerAssigned": "manager 1",
@@ -116,7 +99,7 @@ var allRoles = [
     }
 ];
 
-let sideSec = document.getElementsByClassName('side-section-card');
+let sideSec = document.getElementsByClassName('navbar-section-card');
 for (let i = 0; i < sideSec.length; i++) {
     sideSec[i].addEventListener("mouseover", changeIcon);
     sideSec[i].addEventListener('mouseout', changeIcon);
@@ -175,7 +158,7 @@ function layoutChange() {
         for (let i = 0; i < allSecHeading.length; i++) {
             allSecHeading[i].style.display = "block";
         }
-        if (appUpdate != 1)
+        if (updateContainerFlag != 1)
             document.getElementsByClassName('app-update-container')[0].style.display = "block";
         sideBarChange = 0;
     }
@@ -183,7 +166,7 @@ function layoutChange() {
 
 function dismissBtn() {
     document.getElementsByClassName("app-update-container")[0].style.display = "none";
-    appUpdate = 1;
+    updateContainerFlag = 1;
 }
 
 function changeIcon() {

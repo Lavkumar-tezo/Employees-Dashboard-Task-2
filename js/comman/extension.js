@@ -34,23 +34,18 @@ function hidePopUp() {
 }
 
 function createToastMessage(message){
-    let toastDiv=createNewElement('div',"toast", "flex-container")
-    let tickContainer=createNewElement('div',"toast-tick-container", "flex-container")
-    let tickImg=createNewElementWithAttr('img',['src',"../assets/icons/tick.svg"],['alt','tick']);
-    tickContainer.appendChild(tickImg);
-    let textSpan = document.createElement("span");
-    textSpan.textContent = message;
-    let crossContainer=createNewElement('div',"toast-cross-container", "flex-container")
-    let crossImg=createNewElementWithAttr('img',['src',"../assets/icons/cross.svg"],['alt','cross'])
-    crossContainer.addEventListener('click',hidePopUp)
-    crossContainer.appendChild(crossImg);
-    tickContainer.appendChild(tickImg);
-    toastDiv.appendChild(tickContainer);
-    toastDiv.appendChild(textSpan);
-    toastDiv.appendChild(crossContainer);
-    setTimeout(hidePopUp,4500);
-    let content = document.querySelector(".content");
-    content.appendChild(toastDiv);
+  let toastDiv=createNewElement('div',"toast", "flex-container")
+  let tickContainer=createNewElement('div',"toast-tick-container", "flex-container")
+  let tickImg=createNewElementWithAttr('img',['src',"../assets/icons/tick.svg"],['alt','tick']);
+  let textSpan = document.createElement("span");
+  textSpan.textContent = message;
+  let crossContainer=createNewElement('div',"toast-cross-container", "flex-container")
+  let crossImg=createNewElementWithAttr('img',['src',"../assets/icons/cross.svg"],['alt','cross'])
+  crossContainer.addEventListener('click',hidePopUp);
+  toastDiv=addElementToParent(toastDiv,[tickContainer,tickImg],textSpan,[crossContainer,crossImg])
+  setTimeout(hidePopUp,4500);
+  let content = document.querySelector(".content");
+  content.appendChild(toastDiv);
 }
 
 function updateInput(event,mainInput,parent) {
@@ -115,4 +110,16 @@ function createNewElementWithAttr(type,...attrArray){
   for(let i=0;i<attrArray.length;i++)
     element.setAttribute(`${attrArray[i][0]}`,`${attrArray[i][1]}`)  
   return element;
+}
+
+function addElementToParent(parent,...child){
+  for(let i=0;i<child.length;i++){
+    if(Array.isArray(child[i])){
+      parent.appendChild(addElementToParent(...child[i]))
+    }
+    else{
+      parent.appendChild(child[i]);
+    }
+  }
+  return parent;
 }

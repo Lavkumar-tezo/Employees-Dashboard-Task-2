@@ -6,36 +6,26 @@ function insertEmployee(employee) {
   let inputCheckbox=createNewElementWithAttr('input',["type", "checkbox"],["name", "select"])
   inputCheckbox.classList.add("select");
   inputCheckbox.addEventListener("click", findSelectedRow);
-  tdCheckbox.appendChild(inputCheckbox);
-  tr.appendChild(tdCheckbox);
   let tdProfile=createNewElement("td","d-flex", "jus-content-start", "emp-profile");
   let tdProfileContainer=createNewElement("div","d-flex",'empl-profile-detail')
   let profilDiv=createNewElement("div","emp-profile-container", "flex-container")
-  if(!employee.img)
+  if(!employee.img){
     employee.img="../assets/images/dummy-profile-image.jpg"
+  }
   let imgProfile=createNewElementWithAttr("img",["src",employee.img],["alt", "employee-image"]);
   imgProfile.classList.add("employee-img");
-  profilDiv.appendChild(imgProfile);
-  tdProfileContainer.appendChild(profilDiv);
   let divProfile=createNewElement("div","employee-profile", "d-flex", "flex-col");
   let spanName=createNewElement('span','employee-name');
   let employeeName = `${employee.fname} ${employee.lname}`;
   spanName.textContent = employeeName;
   (employeeName.length > 18) ? spanName.setAttribute('title', employeeName) : spanName.setAttribute('title', '')
-  divProfile.appendChild(spanName);
   let spanEmail=createNewElement('span','employee-email');
   spanEmail.textContent = employee.email;
   (employee.email.length > 18) ? spanEmail.setAttribute('title', employee.email) : spanEmail.setAttribute('title', '')
-  divProfile.appendChild(spanEmail);
-  tdProfileContainer.appendChild(divProfile);
-  tdProfile.appendChild(tdProfileContainer)
-  tr.appendChild(tdProfile);
   let tdLocation=createNewElement('td','employee-location')
   tdLocation.textContent = employee.location;
-  tr.appendChild(tdLocation);
   let tdDepartment=createNewElement('td','employee-department')
   tdDepartment.textContent = employee.dept;
-  tr.appendChild(tdDepartment);
   let tdRole=createNewElement('td','employee-role')
   let roleDiv=document.createElement('div');
   if(employee.role){
@@ -48,36 +38,24 @@ function insertEmployee(employee) {
   }
   else
     roleDiv.textContent='N/A';
-  tdRole.appendChild(roleDiv);
-  tr.appendChild(tdRole);
   let tdEmpNo=createNewElement('td','employee-no');
   tdEmpNo.textContent = employee.empNo;
-  tr.appendChild(tdEmpNo);
   let tdStatus=createNewElement('td','employee-status')
   let spanStatus=createNewElement("span","employee-status-value")
   spanStatus.textContent = employee.status ? employee.status : "Active";
-  tdStatus.appendChild(spanStatus);
-  tr.appendChild(tdStatus);
   let tdJoinDate=createNewElement('td','employee-join-dt')
   tdJoinDate.textContent = employee.joinDate;
-  tr.appendChild(tdJoinDate);
   let tdDots=createNewElement('td','row-edit-container')
   let btnDots=createNewElement('button','three-dots')
   let imgDots=createNewElementWithAttr('img',["src", "../assets/icons/three-dot.svg"],["alt", "three-dot"])
-  btnDots.appendChild(imgDots);
-  tdDots.appendChild(btnDots);
   let editDiv=createNewElement('div',"empl-edit-options", "d-flex", "flex-col", "hide")
   let option1=createNewElement('span','row-edit')
   option1.innerText = "Edit";
-  editDiv.appendChild(option1);
   let option2=createNewElement('span','row-delete')
   option2.innerText = "Delete";
-  editDiv.appendChild(option2);
   let option3=createNewElement('option','status-change')
   option3.innerText = "Mark as In Active";
-  editDiv.appendChild(option3);
-  tdDots.appendChild(editDiv);
-  tr.appendChild(tdDots);
+  tr=addElementToParent(tr,[tdCheckbox,inputCheckbox],[tdProfile,[tdProfileContainer,[profilDiv,imgProfile],[divProfile,spanName,spanEmail]]],tdLocation,tdDepartment,[tdRole,roleDiv],tdEmpNo,[tdStatus,spanStatus],tdJoinDate,[tdDots,[btnDots,imgDots],[editDiv,option1,option2,option3]])
   let table = document.getElementsByClassName("employee-table-body")[0];
   table.appendChild(tr);
 }
@@ -101,19 +79,6 @@ function formatDate(date) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
-
-function displayImagePreview() {
-  let image1 = document.getElementById("empl-img").files[0];
-  if (image1) {
-    var url = URL.createObjectURL(image1);
-    document.querySelector('.employee-profile-img').src = url
-  }
-  let image2 = document.getElementById("edit-empl-img").files[0];
-  if (image2) {
-    var url = URL.createObjectURL(image2);
-    document.querySelector('.edit-employee-profile').src = url;
-  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -290,7 +255,7 @@ function alphabetSort() {
     localStorage.removeItem('selectedAlpha');
     document.querySelector('.no-records-container').classList.add('hide')
     filterSearch();
-    return false;
+    return;
   }
   localStorage.setItem('selectedAlpha', JSON.stringify(alphabet));
   document
@@ -552,3 +517,5 @@ function tableSearch(){
       row.style.display='table-row';
   })
 }
+
+

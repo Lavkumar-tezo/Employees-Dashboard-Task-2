@@ -145,7 +145,7 @@ function validateField(form, flag = true, mode) {
         }
         
       }
-      else if (element.name == 'number') {
+      else if (element.type == 'number') {
         let empNum = element.value
         if (empNum == "") {
           showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required`, flag);
@@ -163,20 +163,13 @@ function validateField(form, flag = true, mode) {
           check = 0;
         }
       }
-      if (element.type != "file") {
-        if (element.name != "dob") {
-          if (element.name)
-            if (element.value == "") {
+      if (element.value == "" && element.name != "dob" && element.type != "file") {
               showValidInput(element, `&#9888; ${dangerInputName[element.name]} is required`, flag);
               check = 0;
-            }
-        } else if (element.value == "") {
-          showValidInput(
-            element.parentElement,
-            `&#9888; ${dangerInputName[element.name]} is required`, flag
-          );
+      }
+      else if (element.value == "" && element.type != "file") {
+        showValidInput(element.parentElement,`&#9888; ${dangerInputName[element.name]} is required`, flag);
           check = 0;
-        }
       }
     }
     let formSelect = form.getElementsByTagName('select');
@@ -190,6 +183,25 @@ function validateField(form, flag = true, mode) {
     return check;
 }
 
+function displayImagePreview() {
+  let image1 = document.getElementById("empl-img").files[0];
+  if (image1) {
+    const reader = new FileReader();
+    reader.readAsDataURL(image1);
+    reader.onload = function () {
+      document.querySelector('.employee-profile-img').src =reader.result;
+    };
+  }
+  let image2 = document.getElementById("edit-empl-img").files[0];
+  if (image2) {
+    const reader = new FileReader();
+    reader.readAsDataURL(image2);
+    reader.onload = function () {
+      document.querySelector('.edit-employee-profile').src =reader.result;
+    };
+  }
+}
+
 function addEmployee(event, mode) {
   event.preventDefault();
   let form;
@@ -199,7 +211,7 @@ function addEmployee(event, mode) {
   else {
     form = document.getElementsByClassName("edit-employee-form")[0];
   }
-  let check = validateField(form, mode);
+  let check = validateField(form,true,mode);
   if (check == 0)
     return;
   let newObject = {};
@@ -215,11 +227,9 @@ function addEmployee(event, mode) {
     if (element.type == "date") {
       let value = element.value.split("-");
       newObject[element.name] = `${value[2]}/${value[1]}/${value[0]}`;
-    } else if (element.type == "file") {
-      if (image) {
-        var url = URL.createObjectURL(image);
-        newObject[element.name] = url;
-      }
+    }
+    else if (element.type == "file") {
+      newObject[element.name]= (mode== 'add')?document.querySelector('.employee-profile-img').src:document.querySelector('.edit-employee-profile').src
     }
     else if(element.name=='role'){
       let allotedRoleId=allRoles.filter(function(obj){
@@ -287,6 +297,13 @@ document.querySelector(".dob-input").addEventListener("click", (event) => {
   let input = document.getElementById("new-emp-dob");
   setElementAttribute("#new-emp-dob","type", "date")
   input.focus();
+  input.showPicker();
+  event.target.parentElement.style.borderColor = 'var(--blue)';
+});
+
+document.querySelector("#new-emp-dob").addEventListener("focus", (event) => {
+  let input = event.target;
+  setElementAttribute("#new-emp-dob","type", "date")
   input.showPicker();
   event.target.parentElement.style.borderColor = 'var(--blue)';
 });

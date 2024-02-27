@@ -11,29 +11,19 @@ function createRoleCard(data) {
   editIcon.addEventListener('click',(event)=>{
     openEditRoleForm(event)
   })
-  roleName.appendChild(roleTitle);
-  roleName.appendChild(editIcon);
   let roleDetails=createNewElement('div',"w-100","role-details","flex-container","flex-col")
   let roleDepartment=createNewElement('div',"role-department","d-flex","jus-content-btw","w-100")
   let deptIcon=createNewElement('div','dept-icon','d-flex')
   let deptImg=createNewElementWithAttr('img',['src',"../assets/icons/emp-id.svg"],['alt','department-icon'])
   const deptLabel = document.createTextNode("Department");
-  deptIcon.appendChild(deptImg);
-  deptIcon.appendChild(deptLabel);
   let roleDeptName=createNewElement('div','role-dept-name')
   roleDeptName.textContent = data.dept;
-  roleDepartment.appendChild(deptIcon);
-  roleDepartment.appendChild(roleDeptName);
   let roleLocation=createNewElement('div','role-department','d-flex','jus-content-btw','w-100')
   let locIcon=createNewElement('div','dept-icon','d-flex')
   let locImg=createNewElementWithAttr('img',['src',"../assets/icons/location.svg"],['alt','location-icon'])
   const locLabel = document.createTextNode("Location");
-  locIcon.appendChild(locImg);
-  locIcon.appendChild(locLabel);
   let roleLocName=createNewElement('div','role-dept-location')
   roleLocName.textContent = data.location;
-  roleLocation.appendChild(locIcon);
-  roleLocation.appendChild(roleLocName);
   let totalEmployee=createNewElement('div','role-department','d-flex','jus-content-btw','w-100');
   let totalLabel=createNewElement('div','dept-icon')
   totalLabel.textContent = "Total Employee";
@@ -66,22 +56,13 @@ function createRoleCard(data) {
     let width=(data.profiles.length+1)*0.5;
     emplProfileContainer.style.width=`${width}rem`;
   }
-  totalEmployee.appendChild(totalLabel);
-  totalEmployee.appendChild(emplProfileContainer);
-  roleDetails.appendChild(roleDepartment);
-  roleDetails.appendChild(roleLocation);
-  roleDetails.appendChild(totalEmployee);
   let viewAllContainer=createNewElement('a','anchor','view-all-container')
   viewAllContainer.href =`../HTML/role-details.html?selectedRole=${data.role}`;
   viewAllContainer.title = 'employee-page';
   let viewAll=createNewElement('div','view-all-container','d-flex')
   viewAll.innerText="View all Employee";
   let rightArrow=createNewElementWithAttr('img',['src',"../assets/icons/Vector.svg"],['alt','right-arrow'])
-  viewAll.appendChild(rightArrow);
-  viewAllContainer.appendChild(viewAll);
-  roleCard.appendChild(roleName);
-  roleCard.appendChild(roleDetails);
-  roleCard.appendChild(viewAllContainer);
+  roleCard=addElementToParent(roleCard,[roleName,roleTitle,editIcon],[roleDetails,[roleDepartment,[deptIcon,deptImg,deptLabel],roleDeptName],[roleLocation,[locIcon,locImg,locLabel],roleLocName],[totalEmployee,totalLabel,emplProfileContainer]],[viewAllContainer,[viewAll,rightArrow]])
   parent.appendChild(roleCard);
 }
 
@@ -224,6 +205,9 @@ function closeEditRoleForm(){
   allEmployeeContainer.innerHTML="";
   allEmployeeContainer.style.display='none'
   validateField(form, false,'none')
+  activateInput(true);
+  document.querySelector('.submit-edit-role').innerText="Edit"
+  document.querySelector('.submit-edit-role').type="button";
 }
 
 function createDivBlock(element){
@@ -296,9 +280,20 @@ document.addEventListener("DOMContentLoaded",function () {
       }
     });
   });
+  document.querySelectorAll('.all-employees').forEach((empls)=>{
+    empls.addEventListener('click',(event)=>{
+      event.stopPropagation();
+    })
+  })
+  document.addEventListener('click',()=>{
+    document.querySelectorAll('.all-employees').forEach((empls)=>{
+      empls.style.display="none";
+    })
+  })
   let empCardOption=['assign-employees','edit-assign-employees'];
   empCardOption.forEach((empCard)=>{
-    document.querySelector(`#${empCard}`).addEventListener('focus',(event)=>{
+    document.querySelector(`#${empCard}`).addEventListener('click',(event)=>{
+      event.stopPropagation();
       event.target.parentElement.querySelector('.all-employees').style.display = "block";
     })
     document.querySelector(`#${empCard}`).addEventListener('keyup',(event)=>{
@@ -331,12 +326,11 @@ document.addEventListener("DOMContentLoaded",function () {
     activateInput(true);
     document.querySelector('.submit-edit-role').innerText = "Edit";
     document.querySelector('.submit-edit-role').type = "button";
-    localStorage.removeItem('selectedRole')
+    localStorage.removeItem('selectedRole');
     closeEditRoleForm();
   });
 
 });
-
 
 function activateInput(flag = false) {
   let allDisabledInputs = ['edit-role-name', 'edit-role-dept', 'edit-role-desc', 'edit-role-location','edit-assign-employees'];
@@ -418,7 +412,6 @@ function addRole(event,mode){
   else{
     closeEditRoleForm();
     createToastMessage('Changes Applied')
-    document.querySelector('.submit-edit-role').type="button";
   }
 }
 
