@@ -289,7 +289,7 @@ function addEmployee(event, mode) {
       createToastMessage('Changes Applied');
     }
     form.reset();
-    form.querySelector('img').src = "../assets/images/dummy-profile-image.jpg";
+    form.querySelector('img').src = "./assets/images/dummy-profile-image.jpg";
   }
 }
 

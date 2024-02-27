@@ -10,7 +10,7 @@ function insertEmployee(employee) {
   let tdProfileContainer = createNewElement("div", "d-flex", 'empl-profile-detail')
   let profilDiv = createNewElement("div", "emp-profile-container", "flex-container")
   if (!employee.img) {
-    employee.img = "../assets/images/dummy-profile-image.jpg"
+    employee.img = "./assets/images/dummy-profile-image.jpg"
   }
   let imgProfile = createNewElementWithAttr("img", ["src", employee.img], ["alt", "employee-image"]);
   imgProfile.classList.add("employee-img");
@@ -47,7 +47,7 @@ function insertEmployee(employee) {
   tdJoinDate.textContent = employee.joinDate;
   let tdDots = createNewElement('td', 'row-edit-container')
   let btnDots = createNewElement('button', 'three-dots')
-  let imgDots = createNewElementWithAttr('img', ["src", "../assets/icons/three-dot.svg"], ["alt", "three-dot"])
+  let imgDots = createNewElementWithAttr('img', ["src", "./assets/icons/three-dot.svg"], ["alt", "three-dot"])
   let editDiv = createNewElement('div', "empl-edit-options", "d-flex", "flex-col", "hide")
   let option1 = createNewElement('span', 'row-edit')
   option1.innerText = "Edit";

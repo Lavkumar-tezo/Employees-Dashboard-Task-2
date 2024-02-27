@@ -7,20 +7,20 @@ function createRoleCard(data) {
   let roleName = createNewElement('div', "role-title-icon", "d-flex", "jus-content-btw", "w-100")
   let roleTitle = createNewElement('div', 'role-title')
   roleTitle.textContent = data.role;
-  let editIcon = createNewElementWithAttr('img', ['src', "../assets/icons/edit.svg"], ['alt', 'edit-icon'])
+  let editIcon = createNewElementWithAttr('img', ['src', "./assets/icons/edit.svg"], ['alt', 'edit-icon'])
   editIcon.addEventListener('click', (event) => {
     openEditRoleForm(event)
   })
   let roleDetails = createNewElement('div', "w-100", "role-details", "flex-container", "flex-col")
   let roleDepartment = createNewElement('div', "role-department", "d-flex", "jus-content-btw", "w-100")
   let deptIcon = createNewElement('div', 'dept-icon', 'd-flex')
-  let deptImg = createNewElementWithAttr('img', ['src', "../assets/icons/emp-id.svg"], ['alt', 'department-icon'])
+  let deptImg = createNewElementWithAttr('img', ['src', "./assets/icons/emp-id.svg"], ['alt', 'department-icon'])
   const deptLabel = document.createTextNode("Department");
   let roleDeptName = createNewElement('div', 'role-dept-name')
   roleDeptName.textContent = data.dept;
   let roleLocation = createNewElement('div', 'role-department', 'd-flex', 'jus-content-btw', 'w-100')
   let locIcon = createNewElement('div', 'dept-icon', 'd-flex')
-  let locImg = createNewElementWithAttr('img', ['src', "../assets/icons/location.svg"], ['alt', 'location-icon'])
+  let locImg = createNewElementWithAttr('img', ['src', "./assets/icons/location.svg"], ['alt', 'location-icon'])
   const locLabel = document.createTextNode("Location");
   let roleLocName = createNewElement('div', 'role-dept-location')
   roleLocName.textContent = data.location;
@@ -61,7 +61,7 @@ function createRoleCard(data) {
   viewAllContainer.title = 'employee-page';
   let viewAll = createNewElement('div', 'view-all-container', 'd-flex')
   viewAll.innerText = "View all Employee";
-  let rightArrow = createNewElementWithAttr('img', ['src', "../assets/icons/Vector.svg"], ['alt', 'right-arrow'])
+  let rightArrow = createNewElementWithAttr('img', ['src', "./assets/icons/Vector.svg"], ['alt', 'right-arrow'])
   roleCard = addElementToParent(roleCard, [roleName, roleTitle, editIcon], [roleDetails, [roleDepartment, [deptIcon, deptImg, deptLabel], roleDeptName], [roleLocation, [locIcon, locImg, locLabel], roleLocName], [totalEmployee, totalLabel, emplProfileContainer]], [viewAllContainer, [viewAll, rightArrow]])
   parent.appendChild(roleCard);
 }

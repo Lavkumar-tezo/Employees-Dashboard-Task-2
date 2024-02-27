@@ -13,22 +13,22 @@ function createRoleCard(employee) {
     employeeDept.textContent = selectedRole.role;
     let employeeContainer = createNewElement('div', 'w-100', 'role-details')
     let departmentIcon = createNewElement('div', 'dept-icon', 'd-flex')
-    let deptImage = createNewElementWithAttr('img', ['src', "../assets/icons/emp-id.svg"], ['alt', 'department-id'])
+    let deptImage = createNewElementWithAttr('img', ['src', "./assets/icons/emp-id.svg"], ['alt', 'department-id'])
     let departmentId = createNewElement('div', 'emp-office-detail')
     departmentId.textContent = employee.empNo;
     let departmentDetails = createNewElement('div', "role-department", "d-flex", "w-100", "jus-content-start")
     let emailIcon = createNewElement('div', "dept-icon", "d-flex")
-    let emailImage = createNewElementWithAttr('img', ['src', "../assets/icons/email.svg"], ['alt', 'email-icon'])
+    let emailImage = createNewElementWithAttr('img', ['src', "./assets/icons/email.svg"], ['alt', 'email-icon'])
     let emailAddress = createNewElement('div', 'emp-office-detail')
     emailAddress.textContent = employee.email;
     let emailDetails = createNewElement('div', "role-department", "d-flex", "w-100", "jus-content-start")
     let teamIcon = createNewElement('div', "dept-icon", "d-flex")
-    let teamImage = createNewElementWithAttr('img', ['src', "../assets/icons/team.svg"], ['alt', 'team-icon'])
+    let teamImage = createNewElementWithAttr('img', ['src', "./assets/icons/team.svg"], ['alt', 'team-icon'])
     let teamRole = createNewElement('div', 'emp-office-detail')
     teamRole.textContent = employee.dept;
     let teamDetails = createNewElement('div', "role-department", "d-flex", "w-100", "jus-content-start")
     let locationIcon = createNewElement('div', "dept-icon", "d-flex")
-    let locationImage = createNewElementWithAttr('img', ['src', "../assets/icons/location.svg"], ['alt', 'location-icon'])
+    let locationImage = createNewElementWithAttr('img', ['src', "./assets/icons/location.svg"], ['alt', 'location-icon'])
     locationIcon.appendChild(locationImage)
     let locationAddress = createNewElement('div', 'emp-office-detail')
     locationAddress.textContent = employee.location;
@@ -37,7 +37,7 @@ function createRoleCard(employee) {
     viewAllLink.classList.add('anchor', 'view-all-container')
     let viewAllText = createNewElement('div', "view-all", "d-flex")
     viewAllText.textContent = "View ";
-    let arrowIcon = createNewElementWithAttr('img', ['src', "../assets/icons/Vector.svg"], ['alt', 'right-arrow'])
+    let arrowIcon = createNewElementWithAttr('img', ['src', "./assets/icons/Vector.svg"], ['alt', 'right-arrow'])
     cardContainer = addElementToParent(cardContainer, [empCardDetail, profileImage, [employeeDetails, employeeName, employeeDept]], [employeeContainer, [departmentDetails, [departmentIcon, deptImage], departmentId], [emailDetails, [emailIcon, emailImage], emailAddress], [teamDetails, [teamIcon, teamImage], teamRole], [locationDetails, [locationIcon, locationImage], locationAddress]], [viewAllLink, [viewAllText, arrowIcon]])
     document.querySelector('.role-card-container').appendChild(cardContainer)
 }
