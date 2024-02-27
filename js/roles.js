@@ -61,7 +61,7 @@ function createRoleCard(data) {
   viewAllContainer.title = 'employee-page';
   let viewAll = createNewElement('div', 'view-all-container', 'd-flex')
   viewAll.innerText = "View all Employee";
-  let rightArrow = createNewElementWithAttr('img', ['src', "./assets/icons/Vector.svg"], ['alt', 'right-arrow'])
+  let rightArrow = createNewElementWithAttr('img', ['src', "./assets/icons/vector.svg"], ['alt', 'right-arrow'])
   roleCard = addElementToParent(roleCard, [roleName, roleTitle, editIcon], [roleDetails, [roleDepartment, [deptIcon, deptImg, deptLabel], roleDeptName], [roleLocation, [locIcon, locImg, locLabel], roleLocName], [totalEmployee, totalLabel, emplProfileContainer]], [viewAllContainer, [viewAll, rightArrow]])
   parent.appendChild(roleCard);
 }

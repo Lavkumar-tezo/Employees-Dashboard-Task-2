@@ -37,7 +37,7 @@ function createRoleCard(employee) {
     viewAllLink.classList.add('anchor', 'view-all-container')
     let viewAllText = createNewElement('div', "view-all", "d-flex")
     viewAllText.textContent = "View ";
-    let arrowIcon = createNewElementWithAttr('img', ['src', "./assets/icons/Vector.svg"], ['alt', 'right-arrow'])
+    let arrowIcon = createNewElementWithAttr('img', ['src', "./assets/icons/vector.svg"], ['alt', 'right-arrow'])
     cardContainer = addElementToParent(cardContainer, [empCardDetail, profileImage, [employeeDetails, employeeName, employeeDept]], [employeeContainer, [departmentDetails, [departmentIcon, deptImage], departmentId], [emailDetails, [emailIcon, emailImage], emailAddress], [teamDetails, [teamIcon, teamImage], teamRole], [locationDetails, [locationIcon, locationImage], locationAddress]], [viewAllLink, [viewAllText, arrowIcon]])
     document.querySelector('.role-card-container').appendChild(cardContainer)
 }
