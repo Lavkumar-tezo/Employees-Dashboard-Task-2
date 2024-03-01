@@ -149,7 +149,7 @@ function layoutChange() {
         document.getElementsByClassName('sidebar-min-icon')[0].classList.add("sidebar-min-icon-expand");
         document.getElementsByClassName('sm-heading')[0].style.display = "block";
         document.getElementsByClassName('md-heading')[0].style.display = "none";
-        let allSecHeading = document.getElementsByClassName('sec-heading');
+        let allSecHeading = document.getElementsByClassName('navbar-item-title');
         for (let i = 0; i < allSecHeading.length; i++) {
             allSecHeading[i].style.display = "none";
         }
@@ -164,7 +164,7 @@ function layoutChange() {
         document.getElementsByClassName('sidebar-min-icon')[0].classList.remove("sidebar-min-icon-expand");
         document.getElementsByClassName('sm-heading')[0].style.display = "none";
         document.getElementsByClassName('md-heading')[0].style.display = "block";
-        let allSecHeading = document.getElementsByClassName('sec-heading');
+        let allSecHeading = document.getElementsByClassName('navbar-item-title');
         for (let i = 0; i < allSecHeading.length; i++) {
             allSecHeading[i].style.display = "block";
         }

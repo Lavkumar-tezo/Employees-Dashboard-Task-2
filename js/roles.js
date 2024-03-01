@@ -478,6 +478,3 @@ function addRoleToEmployee(role) {
   }
   localStorage.setItem('employeeList', JSON.stringify(employeeList));
 }
-
-
-
